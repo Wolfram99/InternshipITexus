@@ -6,7 +6,7 @@ import org.example.Models.Book;
 import org.example.Service.BookDAO.BookDMLCommand;
 import org.example.Service.BookDAO.BookDQLCommand;
 
-import org.example.Service.ParserStringToBook;
+import org.example.util.ParserStringToBook;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.context.MessageSource;
@@ -44,10 +44,12 @@ public class AppRunner {
 
             logger.print(messageSource.getMessage("application.headerMenu",null, Locale.forLanguageTag(lang)));
 
-            while (!sc.hasNextInt()) {
-                logger.print(messageSource.getMessage("validation.enteringIntegerNumber",null,Locale.forLanguageTag(lang) ));
-                sc.nextLine();
-            }
+
+            validNumber(sc);
+//            while (!sc.hasNextInt()) {
+//                logger.print(messageSource.getMessage("validation.enteringIntegerNumber",null,Locale.forLanguageTag(lang) ));
+//                sc.nextLine();
+//            }
 
             int idOperation = sc.nextInt();
             sc.nextLine();
@@ -56,16 +58,24 @@ public class AppRunner {
             switch (idOperation) {
                 case 1 -> temp.forEach(user -> logger.print(user.toString()));
                 case 2 -> {
+
+                    logger.print(messageSource.getMessage("application.titleFindById",null,Locale.forLanguageTag(lang)));
+                    validNumber(sc);
+                    Book tempBook = dql.findById(sc.nextInt());
+                    logger.print(tempBook.toString());
+                    sc.nextLine();
+                }
+                case 3 -> {
                     logger.print(messageSource.getMessage("application.titleCreate",null, Locale.forLanguageTag(lang)));
                     dml.insert(ParserStringToBook.parse(sc.nextLine()));
                 }
-                case 3 ->{
+                case 4 ->{
 
                     temp.forEach(user -> logger.print(user.toString()));
                     logger.print(messageSource.getMessage("application.titleUpdate",null,Locale.forLanguageTag(lang)));
                     dml.update(ParserStringToBook.parse(sc.nextLine()));
                 }
-                case 4 ->{
+                case 5 ->{
                     logger.print(messageSource.getMessage("application.titleDelete",null,Locale.forLanguageTag(lang)));
                     temp.forEach(user -> logger.print(user.toString()));
                     dml.delete(sc.nextInt());
@@ -84,6 +94,14 @@ public class AppRunner {
                     }
                 }
             }
+        }
+    }
+
+
+    private void validNumber(Scanner sc){
+        while (!sc.hasNextInt()) {
+            logger.print(messageSource.getMessage("validation.enteringIntegerNumber",null,Locale.forLanguageTag(lang) ));
+            sc.nextLine();
         }
     }
 }

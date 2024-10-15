@@ -1,13 +1,14 @@
-package org.example.Service.BookDAO;
+package org.example.BookDAO;
 
 import org.example.Models.Book;
-import org.example.Service.ReadCSV;
-import org.example.Service.WriteCSV;
+import org.example.repositories.ReadCSV;
+import org.example.repositories.WriteCSV;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+//Service
 @Component
 public class BookDao implements BookDQLCommand, BookDMLCommand{
     private final ReadCSV readCSV;

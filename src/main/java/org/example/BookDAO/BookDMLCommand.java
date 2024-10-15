@@ -1,4 +1,4 @@
-package org.example.Service.BookDAO;
+package org.example.BookDAO;
 
 import org.example.Models.Book;
 

@@ -3,9 +3,10 @@ package org.example;
 import org.example.CustomException.ValidException;
 import org.example.Loggers.Logger;
 import org.example.Models.Book;
-import org.example.Service.BookDAO.BookDMLCommand;
-import org.example.Service.BookDAO.BookDQLCommand;
+import org.example.BookDAO.BookDMLCommand;
+import org.example.BookDAO.BookDQLCommand;
 
+import org.example.repositories.GenreRepository;
 import org.example.util.ParserStringToBook;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,6 +25,13 @@ public class AppRunner {
     private final MessageSource messageSource;
     public static String lang;
 
+
+
+    @Autowired
+    private GenreRepository repository;
+
+
+
     @Autowired
     public AppRunner(BookDMLCommand dml, BookDQLCommand dql, Logger logger, MessageSource messageSource) {
         this.dml = dml;
@@ -33,6 +41,13 @@ public class AppRunner {
     }
 
     public void run() {
+
+//        for (Genre g: repository.findAll()) {
+//            System.out.println(g.toString());
+//        }
+//        System.out.println(repository.findById(2));
+
+
         Scanner sc = new Scanner(System.in);
         logger.print(messageSource.getMessage("application.startMessage",null,null));
         lang = sc.nextLine();

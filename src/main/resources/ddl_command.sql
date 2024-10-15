@@ -19,9 +19,13 @@ CREATE TABLE authors(
 CREATE TABLE Books(
       id serial not null primary key,
       name VARCHAR(50) not null,
+      short_description VARCHAR(255),
       author_id int not null REFERENCES authors(id),
       genre_id int not null REFERENCES genres(id),
       publication_year int,
       volume int not null,
-      cover_type_id int not null REFERENCES cover_type(id),
+      cover_type_id int not null REFERENCES cover_type(id)
 );
+
+
+

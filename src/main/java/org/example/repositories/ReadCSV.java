@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-//Repository
+//Repository CSV
 @Component
 public class ReadCSV {
     private final ConnectionForTheFile connection;

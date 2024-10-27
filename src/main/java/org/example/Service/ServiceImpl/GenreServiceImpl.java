@@ -36,7 +36,7 @@ public class GenreServiceImpl implements GenreDQLService, GenreDMLService {
 
     @Override
     public Genre findById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id);
     }
 
     @Override

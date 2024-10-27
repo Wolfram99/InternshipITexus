@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional(readOnly = true)
+
 public class BookRepository implements DBRepository<Book>{
 
 
@@ -49,12 +49,14 @@ public class BookRepository implements DBRepository<Book>{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Book> findAll() {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("SELECT b From Book b",Book.class).getResultList();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Book findById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Book.class,id);

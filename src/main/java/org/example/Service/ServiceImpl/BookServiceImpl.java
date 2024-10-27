@@ -36,7 +36,7 @@ public class BookServiceImpl implements BookDMLService, BookDQLService {
 
     @Override
     public Book findById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id);
     }
 
     @Override

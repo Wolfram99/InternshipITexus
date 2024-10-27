@@ -21,7 +21,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:hibernate.properties")
-@EnableTransactionManagement
+@EnableTransactionManagement(proxyTargetClass = true)
 public class HibernateConfig {
 
 

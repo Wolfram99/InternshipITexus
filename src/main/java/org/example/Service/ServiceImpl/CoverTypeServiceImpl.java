@@ -36,7 +36,7 @@ public class CoverTypeServiceImpl implements CoverTypeDMLService, CoverTypeDQLSe
 
     @Override
     public CoverType findById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id);
     }
 
     @Override

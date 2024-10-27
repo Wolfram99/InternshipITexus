@@ -1,10 +1,19 @@
-package org.example.Models;
+package org.example.Entity;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+
+@Entity
+@Table(name = "genres")
 public class Genre {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "genre")
     private String genre;
 
     public Genre() {

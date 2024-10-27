@@ -1,6 +1,6 @@
 package org.example.Service;
 
-import org.example.Models.Genre;
+import org.example.Entity.Genre;
 
 public interface GenreDQLService extends DQLService<Genre> {
 }

@@ -1,6 +1,6 @@
 package org.example.Service;
 
-import org.example.Models.Author;
+import org.example.Entity.Author;
 
 public interface AuthorDQLService extends DQLService<Author> {
 }

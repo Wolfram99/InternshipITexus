@@ -1,6 +1,6 @@
 package org.example.Service.ServiceImpl;
 
-import org.example.Models.Genre;
+import org.example.Entity.Genre;
 import org.example.Service.GenreDMLService;
 import org.example.Service.GenreDQLService;
 import org.example.repositories.GenreRepository;

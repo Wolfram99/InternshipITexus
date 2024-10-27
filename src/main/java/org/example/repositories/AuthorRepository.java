@@ -1,66 +1,60 @@
 package org.example.repositories;
 
-import org.example.Models.Author;
+import org.example.Entity.Author;
 import org.example.rowMappers.AuthorRowMapper;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
+@Transactional(readOnly = true)
 public class AuthorRepository implements DBRepository<Author>{
 
-    private final NamedParameterJdbcTemplate template;
+    private final SessionFactory sessionFactory;
 
-    @Autowired
-    public AuthorRepository(NamedParameterJdbcTemplate template) {
-        this.template = template;
+    public AuthorRepository(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
-        template.update("DELETE FROM authors Where ID = :id", new MapSqlParameterSource("id", id));
-
+        Session session = sessionFactory.getCurrentSession();
+        session.remove(session.get(Author.class, id));
     }
 
     @Override
+    @Transactional
     public void update(Author author) {
-        SqlParameterSource map = new MapSqlParameterSource()
-                .addValue("id", author.getId())
-                .addValue("name", author.getName())
-                .addValue("patronymic", author.getPatronymic())
-                .addValue("surname", author.getSurname())
-                .addValue("brithYear", author.getBrith_year());
-        template.update("UPDATE authors SET name = :name, patronymic = :patronymic,surname = :surname,birth_year = :brithYear WHERE ID = :id", map);
+        Session session = sessionFactory.getCurrentSession();
+        session.merge(author);
     }
 
     @Override
+    @Transactional
     public void insert(Author author) {
-        SqlParameterSource map = new MapSqlParameterSource()
-                .addValue("name", author.getName())
-                .addValue("patronymic", author.getPatronymic())
-                .addValue("surname", author.getSurname())
-                .addValue("brithYear", author.getBrith_year());
-        template.update("INSERT INTO authors (name, patronymic, surname, birth_year) VALUES (:name, :patronymic, :surname, :brithYear) ", map);
-
+        Session session = sessionFactory.getCurrentSession();
+        session.persist(author);
     }
 
     @Override
     public List<Author> findAll() {
-        return template.query("SELECT * FROM authors", new AuthorRowMapper());
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("SELECT a FROM Author a", Author.class).getResultList();
     }
 
     @Override
-    public Optional<Author> findById(Integer id) {
-        return template.query("SELECT * FROM authors WHERE ID = :id",
-                        new MapSqlParameterSource("id",id),
-                        new AuthorRowMapper())
-                .stream()
-                .findAny();
+    public Author findById(Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+        return  session.get(Author.class, id);
     }
 
 }

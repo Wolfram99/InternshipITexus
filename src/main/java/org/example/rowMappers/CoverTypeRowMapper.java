@@ -1,6 +1,6 @@
 package org.example.rowMappers;
 
-import org.example.Models.CoverType;
+import org.example.Entity.CoverType;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

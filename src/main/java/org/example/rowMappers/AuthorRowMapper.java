@@ -1,6 +1,6 @@
 package org.example.rowMappers;
 
-import org.example.Models.Author;
+import org.example.Entity.Author;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

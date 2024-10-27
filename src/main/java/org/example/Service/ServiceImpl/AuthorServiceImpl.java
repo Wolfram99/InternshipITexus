@@ -1,6 +1,6 @@
 package org.example.Service.ServiceImpl;
 
-import org.example.Models.Author;
+import org.example.Entity.Author;
 import org.example.Service.AuthorDMLService;
 import org.example.Service.AuthorDQLService;
 import org.example.repositories.AuthorRepository;

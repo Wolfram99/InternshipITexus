@@ -1,14 +1,25 @@
-package org.example.Models;
+package org.example.Entity;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "authors")
 public class Author{
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "name")
     private String name;
+    @Column(name = "patronymic")
     private String patronymic;
+    @Column(name = "surname")
     private String surname;
+    @Column(name = "birth_year")
     private Integer brith_year;
 
 

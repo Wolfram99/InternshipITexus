@@ -1,6 +1,6 @@
 package org.example.Service;
 
-import org.example.Models.Book;
+import org.example.Entity.Book;
 
 public interface BookDMLService extends DMLService<Book> {
 

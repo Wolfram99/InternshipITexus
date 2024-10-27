@@ -3,7 +3,7 @@ package org.example.Connectors;
 
 
 import jakarta.annotation.PostConstruct;
-import org.example.Models.Book;
+import org.example.Entity.Book;
 import org.example.Schems.BookSchemaCSV;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

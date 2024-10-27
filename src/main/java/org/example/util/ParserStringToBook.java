@@ -1,6 +1,6 @@
 package org.example.util;
 
-import org.example.Models.Book;
+import org.example.Entity.Book;
 
 public class ParserStringToBook {
 

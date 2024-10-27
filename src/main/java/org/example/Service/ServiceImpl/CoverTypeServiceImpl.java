@@ -1,6 +1,6 @@
 package org.example.Service.ServiceImpl;
 
-import org.example.Models.CoverType;
+import org.example.Entity.CoverType;
 import org.example.Service.CoverTypeDMLService;
 import org.example.Service.CoverTypeDQLService;
 import org.example.repositories.CoverTypeRepository;

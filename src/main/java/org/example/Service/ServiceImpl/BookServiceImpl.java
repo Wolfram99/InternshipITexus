@@ -1,6 +1,6 @@
 package org.example.Service.ServiceImpl;
 
-import org.example.Models.Book;
+import org.example.Entity.Book;
 import org.example.Service.BookDMLService;
 import org.example.Service.BookDQLService;
 import org.example.repositories.BookRepository;

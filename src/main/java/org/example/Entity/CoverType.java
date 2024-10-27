@@ -1,11 +1,19 @@
-package org.example.Models;
+package org.example.Entity;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
+@Table(name = "cover_type")
 public class CoverType{
 
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "cover_type")
     private String coverType;
 
     public CoverType() {

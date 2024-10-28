@@ -30,7 +30,7 @@ public class BookRepository implements DBRepository<Book>{
     @Transactional
     public void delete(Integer id) {
         Session session = sessionFactory.getCurrentSession();
-        session.remove(session.get(Book.class,id));
+        session.remove(session.find(Book.class,id));
     }
 
     @Override
@@ -59,7 +59,7 @@ public class BookRepository implements DBRepository<Book>{
     @Transactional(readOnly = true)
     public Book findById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Book.class,id);
+        return session.find(Book.class,id);
     }
 
 }

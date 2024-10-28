@@ -13,7 +13,7 @@ public class CoverType{
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "cover_type")
+    @Column(name = "cover_type",nullable = false,unique = true)
     private String coverType;
 
     public CoverType() {

@@ -14,27 +14,30 @@ public class Book implements Serializable {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "name")
+    @Column(name = "name",nullable = false)
     private String name;
     @Column(name = "short_description")
     private String shortDescription;
     @Column(name = "publication_year")
     private Integer publication_year;
-    @Column(name = "volume")
+    @Column(name = "volume",nullable = false)
     private Integer volume;
 
 
-    //TODO: that's the way it's implemented, but it can be changed
-    @OneToOne
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
+
+    @OneToOne(optional = false)
+//    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    @PrimaryKeyJoinColumn
     private Author authorId;
 
-    @OneToOne
-    @JoinColumn(name = "genre_id", referencedColumnName = "id")
+    @OneToOne(optional = false)
+//    @JoinColumn(name = "genre_id", referencedColumnName = "id")
+    @PrimaryKeyJoinColumn
     private Genre genreId;
 
-    @OneToOne
-    @JoinColumn(name = "cover_type_id", referencedColumnName = "id")
+    @OneToOne(optional = false)
+//    @JoinColumn(name = "cover_type_id", referencedColumnName = "id")
+    @PrimaryKeyJoinColumn
     private CoverType coverTypeId;
 
 

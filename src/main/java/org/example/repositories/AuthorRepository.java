@@ -28,7 +28,7 @@ public class AuthorRepository implements DBRepository<Author>{
     @Transactional
     public void delete(Integer id) {
         Session session = sessionFactory.getCurrentSession();
-        session.remove(session.get(Author.class, id));
+        session.remove(session.find(Author.class, id));
     }
 
     @Override
@@ -54,7 +54,7 @@ public class AuthorRepository implements DBRepository<Author>{
     @Override
     public Author findById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
-        return  session.get(Author.class, id);
+        return  session.find(Author.class, id);
     }
 
 }

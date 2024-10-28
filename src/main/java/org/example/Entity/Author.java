@@ -13,11 +13,11 @@ public class Author{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "name",nullable = false)
     private String name;
     @Column(name = "patronymic")
     private String patronymic;
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
     @Column(name = "birth_year")
     private Integer brith_year;

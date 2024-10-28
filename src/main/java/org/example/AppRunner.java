@@ -74,15 +74,15 @@ public class AppRunner {
                 }
                 case 3 -> {
                     logger.print(messageSource.getMessage("application.titleCreate",null, Locale.forLanguageTag(lang)));
-                //TODO: !!!!!!!
-//                    dml.insert(ParserStringToBook.parse(sc.nextLine()));
+
+                    dml.insert(ParserStringToBook.parse(sc.nextLine()));
                 }
                 case 4 ->{
 
                     temp.forEach(user -> logger.print(user.toString()));
                     logger.print(messageSource.getMessage("application.titleUpdate",null,Locale.forLanguageTag(lang)));
-                //TODO: !!!!!!!
-//                    dml.update(ParserStringToBook.parse(sc.nextLine()));
+
+                    dml.update(ParserStringToBook.parse(sc.nextLine()));
                 }
                 case 5 ->{
                     logger.print(messageSource.getMessage("application.titleDelete",null,Locale.forLanguageTag(lang)));

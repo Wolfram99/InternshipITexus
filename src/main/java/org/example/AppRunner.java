@@ -1,11 +1,17 @@
 package org.example;
 
+import org.example.Entity.CoverType;
+import org.example.Entity.Genre;
 import org.example.Service.BookDMLService;
 import org.example.Service.BookDQLService;
 import org.example.CustomException.ValidException;
 import org.example.Loggers.Logger;
 import org.example.Entity.Book;
 
+import org.example.Service.ServiceImpl.AuthorServiceImpl;
+import org.example.Service.ServiceImpl.CoverTypeServiceImpl;
+import org.example.Service.ServiceImpl.GenreServiceImpl;
+import org.example.repositories.CoverTypeRepository;
 import org.example.util.ParserStringToBook;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -35,11 +41,9 @@ public class AppRunner {
         this.messageSource = messageSource;
     }
 
-    public void run() {
-        System.out.println("---------------------------");
-        System.out.println(dql.findById(1));
-        System.out.println("---------------------------");
 
+
+    public void run() {
         Scanner sc = new Scanner(System.in);
         logger.print(messageSource.getMessage("application.startMessage",null,null));
         lang = sc.nextLine();

@@ -59,6 +59,11 @@ public class BookRepository implements DBRepository<Book>{
     @Transactional(readOnly = true)
     public Book findById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
+        session.find(Book.class,id);
+        session.find(Book.class,id);
+        session.find(Book.class,id);
+
+
         return session.find(Book.class,id);
     }
 

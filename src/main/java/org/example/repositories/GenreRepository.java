@@ -46,10 +46,18 @@ public class GenreRepository implements DBRepository<Genre> {
         session.persist(genre);
     }
 
+
+
+    //TODO: Criteria API
     @Override
     public List<Genre> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("SELECT g From Genre g", Genre.class).getResultList();
+        var cb = session.getCriteriaBuilder();
+        var criteria = cb.createQuery(Genre.class);
+        var genre = criteria.from(Genre.class);
+        criteria.select(genre);
+
+        return session.createQuery(criteria).getResultList();
     }
 
     @Override

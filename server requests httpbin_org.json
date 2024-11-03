@@ -1,0 +1,1205 @@
+{
+	"info": {
+		"_postman_id": "9f9d5516-5d2e-4d93-80a3-bbd5aa055f0d",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33667590"
+	},
+	"item": [
+		{
+			"name": "http_methods",
+			"item": [
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://httpbin.org/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://httpbin.org/get"
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "https://httpbin.org/patch"
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://httpbin.org/post"
+					},
+					"response": []
+				},
+				{
+					"name": "put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "https://httpbin.org/put"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "get_basic_auth",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "alex",
+								"username": "alex"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/basic-auth/alex/alex"
+					},
+					"response": []
+				},
+				{
+					"name": "get-bearer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "alex"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://httpbin.org/bearer"
+					},
+					"response": []
+				},
+				{
+					"name": "get_digest_auth",
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": {
+								"qop": "1",
+								"password": "alex",
+								"username": "alex",
+								"algorithm": "MD5"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/digest-auth/1/alex/alex"
+					},
+					"response": []
+				},
+				{
+					"name": "get_digest_auth",
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": {
+								"qop": "1",
+								"algorithm": "SHA-256",
+								"password": "alex",
+								"username": "alex"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://httpbin.org/digest-auth/1/alex/alex/SHA-256"
+					},
+					"response": []
+				},
+				{
+					"name": "get_digest_auth",
+					"request": {
+						"auth": {
+							"type": "digest",
+							"digest": {
+								"algorithm": "MD5",
+								"qop": "1",
+								"password": "alex",
+								"username": "alex"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/digest-auth/1/alex/alex/MD5/never"
+					},
+					"response": []
+				},
+				{
+					"name": "get_hidden_basic_auth",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "alex",
+								"username": "alex"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/hidden-basic-auth/alex/alex"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "status_codes",
+			"item": [
+				{
+					"name": "delete_status_100",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain"
+							}
+						],
+						"url": "https://httpbin.org/status/100"
+					},
+					"response": []
+				},
+				{
+					"name": "get_status_200",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://httpbin.org/status/200"
+					},
+					"response": []
+				},
+				{
+					"name": "patch_status_300",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "https://httpbin.org/status/300"
+					},
+					"response": []
+				},
+				{
+					"name": "post_status_400",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://httpbin.org/status/400"
+					},
+					"response": []
+				},
+				{
+					"name": "put_status_500",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "https://httpbin.org/status/500"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "request_inspection",
+			"item": [
+				{
+					"name": "headers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/headers"
+					},
+					"response": []
+				},
+				{
+					"name": "ip",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/ip"
+					},
+					"response": []
+				},
+				{
+					"name": "user_agent",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/user-agent"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "response_inspection",
+			"item": [
+				{
+					"name": "cash",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "If-Modified-Since",
+								"value": "test"
+							}
+						],
+						"url": "https://httpbin.org/cache"
+					},
+					"response": []
+				},
+				{
+					"name": "cash_value",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/cache/10"
+					},
+					"response": []
+				},
+				{
+					"name": "etag",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "If-None-Match",
+								"value": ""
+							},
+							{
+								"key": "If-Match",
+								"value": "test"
+							}
+						],
+						"url": "https://httpbin.org/etag/{etag}"
+					},
+					"response": []
+				},
+				{
+					"name": "etag2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "TEST"
+							},
+							{
+								"key": "If-Match",
+								"value": ""
+							}
+						],
+						"url": "https://httpbin.org/etag/{etag}"
+					},
+					"response": []
+				},
+				{
+					"name": "response-headers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://httpbin.org/response-headers?freeform=test",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"response-headers"
+							],
+							"query": [
+								{
+									"key": "freeform",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "response-headers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://httpbin.org/response-headers?freeform=test",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"response-headers"
+							],
+							"query": [
+								{
+									"key": "freeform",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "response_formats",
+			"item": [
+				{
+					"name": "brotli",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/brotli"
+					},
+					"response": []
+				},
+				{
+					"name": "deflate",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/deflate"
+					},
+					"response": []
+				},
+				{
+					"name": "deny",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain"
+							}
+						],
+						"url": "https://httpbin.org/deny"
+					},
+					"response": []
+				},
+				{
+					"name": "encoding_utf8",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": "https://httpbin.org/encoding/utf8"
+					},
+					"response": []
+				},
+				{
+					"name": "gzip",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/gzip"
+					},
+					"response": []
+				},
+				{
+					"name": "html",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": "https://httpbin.org/html"
+					},
+					"response": []
+				},
+				{
+					"name": "json",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/json"
+					},
+					"response": []
+				},
+				{
+					"name": "robots.txt",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain"
+							}
+						],
+						"url": "https://httpbin.org/robots.txt"
+					},
+					"response": []
+				},
+				{
+					"name": "xml",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/xml"
+							}
+						],
+						"url": "https://httpbin.org/xml"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dynamic_data",
+			"item": [
+				{
+					"name": "base64_value",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://httpbin.org/base64/SFRUUEJJTiBpcyBhd2Vzb21l"
+					},
+					"response": []
+				},
+				{
+					"name": "bytes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/octet-stream"
+							}
+						],
+						"url": "https://httpbin.org/bytes/29"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_delay",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/delay/5"
+					},
+					"response": []
+				},
+				{
+					"name": "get_delay",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/delay/6"
+					},
+					"response": []
+				},
+				{
+					"name": "patch_delay",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/delay/3"
+					},
+					"response": []
+				},
+				{
+					"name": "post_delay",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://httpbin.org/delay/2"
+					},
+					"response": []
+				},
+				{
+					"name": "put_delay",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "https://httpbin.org/delay/1"
+					},
+					"response": []
+				},
+				{
+					"name": "drip",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/octet-stream"
+							}
+						],
+						"url": {
+							"raw": "https://httpbin.org/drip?duration=2&numbytes=10&code=200&delay=2",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"drip"
+							],
+							"query": [
+								{
+									"key": "duration",
+									"value": "2"
+								},
+								{
+									"key": "numbytes",
+									"value": "10"
+								},
+								{
+									"key": "code",
+									"value": "200"
+								},
+								{
+									"key": "delay",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "links",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": "https://httpbin.org/links/20/15"
+					},
+					"response": []
+				},
+				{
+					"name": "range",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/octet-stream"
+							}
+						],
+						"url": "https://httpbin.org/range/12"
+					},
+					"response": []
+				},
+				{
+					"name": "stream-bytes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/octet-stream"
+							}
+						],
+						"url": "https://httpbin.org/stream-bytes/22"
+					},
+					"response": []
+				},
+				{
+					"name": "stream",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/stream/2"
+					},
+					"response": []
+				},
+				{
+					"name": "uuid",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/uuid"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cookies",
+			"item": [
+				{
+					"name": "cookies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/cookies"
+					},
+					"response": []
+				},
+				{
+					"name": "cookies_delete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "https://httpbin.org/cookies/delete?freeform=test",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"cookies",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "freeform",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cookies_set",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "https://httpbin.org/cookies/set?freeform=fake",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"cookies",
+								"set"
+							],
+							"query": [
+								{
+									"key": "freeform",
+									"value": "fake"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cookies_set_name_value",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/plain"
+							}
+						],
+						"url": "https://httpbin.org/cookies/set/test/alex"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "images",
+			"item": [
+				{
+					"name": "image",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "image/webp"
+							}
+						],
+						"url": "https://httpbin.org/image"
+					},
+					"response": []
+				},
+				{
+					"name": "image_jpeg",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "image/jpeg"
+							}
+						],
+						"url": "https://httpbin.org/image/jpeg"
+					},
+					"response": []
+				},
+				{
+					"name": "image_png",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "image/png"
+							}
+						],
+						"url": "https://httpbin.org/image/png"
+					},
+					"response": []
+				},
+				{
+					"name": "image_svg",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://httpbin.org/image/svg"
+					},
+					"response": []
+				},
+				{
+					"name": "image_webp",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "image/webp"
+							}
+						],
+						"url": "https://httpbin.org/image/webp"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "redirects",
+			"item": [
+				{
+					"name": "absolute_redirect",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": "https://httpbin.org/absolute-redirect/3"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_redirect-to",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": "https://httpbin.org/redirect-to"
+					},
+					"response": []
+				},
+				{
+					"name": "get_redirect-to",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": {
+							"raw": "https://httpbin.org/redirect-to?url=https://github.com%2F&status_code=302",
+							"protocol": "https",
+							"host": [
+								"httpbin",
+								"org"
+							],
+							"path": [
+								"redirect-to"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://github.com%2F"
+								},
+								{
+									"key": "status_code",
+									"value": "302"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_redirect-to",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": "https://httpbin.org/redirect-to"
+					},
+					"response": []
+				},
+				{
+					"name": "patch_redirect-to",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "url",
+									"value": "https://github.com/",
+									"type": "text"
+								},
+								{
+									"key": "status_code",
+									"value": "302",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://httpbin.org/redirect-to"
+					},
+					"response": []
+				},
+				{
+					"name": "put_redirect-to",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "url",
+									"value": "https://github.com/",
+									"type": "text"
+								},
+								{
+									"key": "status_code",
+									"value": "302",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://httpbin.org/redirect-to"
+					},
+					"response": []
+				},
+				{
+					"name": "redirect",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": "https://httpbin.org/redirect/2"
+					},
+					"response": []
+				},
+				{
+					"name": "relative-redirect",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							}
+						],
+						"url": "https://httpbin.org/relative-redirect/10"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "anything",
+			"item": [
+				{
+					"name": "delete_anything",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/anything"
+					},
+					"response": []
+				},
+				{
+					"name": "get_anything",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/anything"
+					},
+					"response": []
+				},
+				{
+					"name": "patch_anything",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "https://httpbin.org/anything"
+					},
+					"response": []
+				},
+				{
+					"name": "post_anything",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://httpbin.org/anything"
+					},
+					"response": []
+				},
+				{
+					"name": "put_anything",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "https://httpbin.org/anything"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_anything_{anything}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "https://httpbin.org/anything/{anything}"
+					},
+					"response": []
+				},
+				{
+					"name": "get_anything_{anything}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://httpbin.org/anything/{anything}"
+					},
+					"response": []
+				},
+				{
+					"name": "patch_anything_{anything}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "https://httpbin.org/anything/{anything}"
+					},
+					"response": []
+				},
+				{
+					"name": "post_anything_{anything}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "https://httpbin.org/anything/{anything}"
+					},
+					"response": []
+				},
+				{
+					"name": "put_anything_{anything}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "https://httpbin.org/anything/{anything}"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

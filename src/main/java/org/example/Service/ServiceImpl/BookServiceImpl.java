@@ -4,39 +4,46 @@ import org.example.Entity.Book;
 import org.example.Service.BookDMLService;
 import org.example.Service.BookDQLService;
 import org.example.repositories.BookRepository;
+import org.example.repositories.BookRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class BookServiceImpl implements BookDMLService, BookDQLService {
 
-    private final BookRepository repository;
+    private final BookRepositoryJPA repository;
 
     @Autowired
-    public BookServiceImpl(BookRepository repository) {
+    public BookServiceImpl(BookRepositoryJPA repository) {
         this.repository = repository;
     }
 
     @Override
+    @Transactional
     public void insert(Book book) {
-        repository.insert(book);
+        repository.save(book);
     }
 
     @Override
+    @Transactional
     public void update(Book book) {
-        repository.update(book);
+        repository.save(book);
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     @Override
     public Book findById(Integer id) {
-        return repository.findById(id);
+        return repository.findById(id).get();
     }
 
     @Override

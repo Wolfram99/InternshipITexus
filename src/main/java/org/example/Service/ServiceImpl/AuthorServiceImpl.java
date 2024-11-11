@@ -4,39 +4,45 @@ import org.example.Entity.Author;
 import org.example.Service.AuthorDMLService;
 import org.example.Service.AuthorDQLService;
 import org.example.repositories.AuthorRepository;
+import org.example.repositories.AuthorRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class AuthorServiceImpl implements AuthorDQLService, AuthorDMLService {
 
-    private final AuthorRepository repository;
+    private final AuthorRepositoryJPA repository;
 
     @Autowired
-    public AuthorServiceImpl(AuthorRepository repository) {
+    public AuthorServiceImpl(AuthorRepositoryJPA repository) {
         this.repository = repository;
     }
 
     @Override
+    @Transactional
     public void insert(Author author) {
-        repository.insert(author);
+        repository.save(author);
     }
 
     @Override
+    @Transactional
     public void update(Author author) {
-        repository.update(author);
+        repository.save(author);
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     @Override
     public Author findById(Integer id) {
-        return repository.findById(id);
+        return repository.findById(id).get();
     }
 
     @Override

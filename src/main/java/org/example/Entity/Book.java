@@ -1,7 +1,9 @@
 package org.example.Entity;
 
 import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -23,8 +25,6 @@ public class Book implements Serializable {
     @Column(name = "volume",nullable = false)
     private Integer volume;
 
-
-
     @OneToOne(optional = false)
 //    @JoinColumn(name = "author_id", referencedColumnName = "id")
     @PrimaryKeyJoinColumn
@@ -41,12 +41,9 @@ public class Book implements Serializable {
     private CoverType coverTypeId;
 
 
-
-
-
-
     public Book() {
     }
+
 
     public Book(Integer id, String name, String shortDescription, Author authorId, Genre genreId, Integer publication_year, Integer volume, CoverType coverTypeId) {
         this.id = id;

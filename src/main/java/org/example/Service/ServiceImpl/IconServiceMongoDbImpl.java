@@ -1,11 +1,19 @@
 package org.example.Service.ServiceImpl;
 
 
-import org.bson.BsonBinarySubType;
-import org.bson.types.Binary;
-import org.example.Entity.Icon;
-import org.example.repositories.IconMongoDbRepository;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.client.gridfs.model.GridFSFile;
+
+import org.apache.commons.io.IOUtils;
+
+import org.example.Entity.Model.Icon;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.gridfs.GridFsOperations;
+import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,120 +22,38 @@ import java.io.IOException;
 @Service
 public class IconServiceMongoDbImpl {
 
-
-    private final IconMongoDbRepository repository;
+    @Autowired
+    private GridFsTemplate template;
 
     @Autowired
-    public IconServiceMongoDbImpl(IconMongoDbRepository repository) {
-        this.repository = repository;
+    private GridFsOperations operations;
+
+    public String upload(Integer bookId, MultipartFile upload) throws IOException {
+
+        DBObject metadata = new BasicDBObject();
+        metadata.put("size", upload.getSize());
+        metadata.put("bookId", bookId);
+
+        Object fileID = template.store(upload.getInputStream(), upload.getOriginalFilename(), upload.getContentType(), metadata);
+
+        return fileID.toString();
     }
 
 
+    public Icon download(Integer bookId) throws IOException {
 
+        GridFSFile gridFSFile = template.findOne(new Query(Criteria.where("metadata.bookId").is(bookId)));
+        Icon icon = new Icon();
 
-
-    public String addIcon(Integer bookId, MultipartFile file) throws IOException {
-        Icon icon = new Icon(bookId);
-        icon.setImage(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
-        icon = repository.insert(icon);
-        System.out.println(icon.getId());
-        return icon.getId();
+        if (gridFSFile != null && gridFSFile.getMetadata() != null) {
+            icon.setFileName(gridFSFile.getFilename());
+            icon.setBookId(Integer.parseInt(gridFSFile.getMetadata().get("bookId").toString()));
+            icon.setContentType(gridFSFile.getMetadata().get("_contentType").toString());
+            icon.setSize(gridFSFile.getMetadata().get("size").toString());
+            icon.setFile(IOUtils.toByteArray(operations.getResource(gridFSFile).getInputStream()));
+        }
+        return icon;
     }
 
 
-
-    public Icon getPhoto(Integer bookId) {
-        return repository.findByBookId(bookId).get();
-    }
 }
-
-
-
-
-//
-//import com.mongodb.BasicDBObject;
-//import com.mongodb.DBObject;
-//import com.mongodb.client.gridfs.model.GridFSFile;
-//import org.bson.ByteBuf;
-//import org.bson.types.ObjectId;
-//import org.example.Entity.LoadFile;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.mongodb.core.query.Criteria;
-//import org.springframework.data.mongodb.core.query.Query;
-//import org.springframework.data.mongodb.gridfs.GridFsOperations;
-//import org.springframework.data.mongodb.gridfs.GridFsTemplate;
-//import org.springframework.stereotype.Service;
-//import org.springframework.web.multipart.MultipartFile;
-//
-//import java.io.*;
-//import java.nio.ByteBuffer;
-//
-//
-//@Service
-//public class BookMongoDBServiceImpl {
-//
-//    private final GridFsTemplate template;
-//    private final GridFsOperations operations;
-//
-//    @Autowired
-//    public BookMongoDBServiceImpl(GridFsTemplate template, GridFsOperations operations) {
-//        this.template = template;
-//        this.operations = operations;
-//    }
-//
-//
-//    //    public String addFile(MultipartFile upload) throws IOException {
-////
-////        DBObject metadata = new BasicDBObject();
-////        metadata.put("fileSize", upload.getSize());
-////
-////        Object fileID = template.store(upload.getInputStream(), upload.getOriginalFilename(), upload.getContentType(), metadata);
-////
-////        return fileID.toString();
-////    }
-//
-//
-//    public LoadFile downloadFile(String id) throws IOException {
-//
-//        GridFSFile gridFSFile = template.findOne( new Query(Criteria.where("_id").is(id)) );
-//
-//        LoadFile loadFile = new LoadFile();
-//
-//        if (gridFSFile != null && gridFSFile.getMetadata() != null) {
-//            loadFile.setFilename( gridFSFile.getFilename() );
-//
-//            loadFile.setFileType( gridFSFile.getMetadata().get("contentType").toString() );
-//
-//            loadFile.setFileSize(gridFSFile.getMetadata().get("size").toString() );
-//
-//            loadFile.setFile(Byte.parseByte(operations.getResource(gridFSFile).getInputStream()));
-//        }
-//
-//        return loadFile;
-//    }
-//
-//
-//
-////    private final GridFsTemplate repository;
-////
-////    @Autowired
-////    public BookMongoDBServiceImpl(GridFsTemplate repository) {
-////        this.repository = repository;
-////    }
-////
-//    public void addFile(Integer bookId,MultipartFile file) throws IOException {
-//        DBObject dbObject = new BasicDBObject();
-//        dbObject.put("fileName", file.getOriginalFilename());
-//        dbObject.put("contentType", file.getContentType());
-//        dbObject.put("size", file.getSize());
-//        dbObject.put("bookId", bookId);
-//        ObjectId id = template.store(file.getInputStream(), file.getOriginalFilename(), dbObject);
-//        System.out.println(id.toString());
-//    }
-////
-////    public MultipartFile download(ObjectId id){
-////        GridFSFile file = repository.findOne(Query.query(Criteria.where("_id").is(id)));
-////
-////
-////    }
-//}

@@ -1,9 +1,6 @@
 package org.example.Controllers;
 
-
-import org.bson.types.Binary;
-import org.example.Entity.Book;
-import org.example.Entity.Icon;
+import org.example.Entity.Model.Icon;
 import org.example.Service.ServiceImpl.IconServiceMongoDbImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -15,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Base64;
-import java.util.List;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+
 
 @RestController
 @RequestMapping("api/v0.1/files")
@@ -30,41 +28,21 @@ public class WorkingFilesController {
     }
 
 
-    @PostMapping("/add/{bookId}")
-    public ResponseEntity<?> uploadIcon(@PathVariable("bookId") Integer bookId, @RequestParam("icon") MultipartFile icon) throws IOException {
-        service.addIcon(bookId, icon);
-        return ResponseEntity.ok().build();
+    @PostMapping("/upload/{id}")
+    public ResponseEntity<?> upload(@RequestParam("icon")MultipartFile file, @PathVariable("id") Integer bookId) throws IOException {
+        return new ResponseEntity<>(service.upload(bookId ,file), HttpStatus.OK);
     }
 
+    @GetMapping("/download/{id}")
+    public ResponseEntity<ByteArrayResource> download(@PathVariable("id") Integer bookId) throws IOException {
+        Icon icon = service.download(bookId);
 
-    @GetMapping("/download/{bookId}")
-    public String downloadIcon(@PathVariable("bookId") Integer id) {
-        Icon icon = service.getPhoto(id);
-//        Base64.getEncoder().encodeToString(icon.getImage().getData());
-        return Base64.getEncoder().encodeToString(icon.getImage().getData());
+        String URLEncodedFileName = URLEncoder.encode(icon.getFileName(), StandardCharsets.UTF_8);
+        String ResultFileName = URLEncodedFileName.replace('+', ' ');
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(icon.getContentType() ))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename*=\"utf8'ru-ru'"+ResultFileName+"\"")
+                .body(new ByteArrayResource(icon.getFile()));
     }
-
-
-
-//    @PostMapping("/{idBook}")
-//    private HttpStatus upload(@RequestParam("file") MultipartFile file, @PathVariable("idBook") Integer idBook) throws IOException {
-//        service.addFile(idBook,file);
-//        return HttpStatus.OK;
-//    }
-//
-////    @PostMapping("/upload")
-////    public ResponseEntity<?> upload(@RequestParam("file")MultipartFile file, @PathVariable("idBook") Integer idBook) throws IOException {
-////        return new ResponseEntity<>(service.addFile( idBook,file), HttpStatus.OK);
-////    }
-//
-//    @GetMapping("/download/{id}")
-//    public ResponseEntity<ByteArrayResource> download(@PathVariable String id) throws IOException {
-//        LoadFile loadFile = service.downloadFile(id);
-//
-//        return ResponseEntity.ok()
-//                .contentType(MediaType.parseMediaType(loadFile.getFileType() ))
-//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + loadFile.getFilename() + "\"")
-//                .body(new ByteArrayResource(loadFile.getFile()));
-//    }
 
 }

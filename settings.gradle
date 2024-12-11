@@ -1,1 +1,9 @@
 rootProject.name = 'Task1'
+
+includeBuild 'books-app'
+includeBuild 'working-files'
+includeBuild 'api-gateway'
+includeBuild 'Authetication-users'
+
+includeBuild 'config-server'
+

@@ -4,11 +4,96 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/api-gateway" name="api-gateway">
+                <projects>
+                  <project path="$PROJECT_DIR$/api-gateway" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/Authetication-users" name="Authetication-users">
+                <projects>
+                  <project path="$PROJECT_DIR$/Authetication-users" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/books-app" name="books-app">
+                <projects>
+                  <project path="$PROJECT_DIR$/books-app" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/config-server" name="config-server">
+                <projects>
+                  <project path="$PROJECT_DIR$/config-server" />
+                  <project path="$PROJECT_DIR$/config-server/app" />
+                  <project path="$PROJECT_DIR$/config-server/list" />
+                  <project path="$PROJECT_DIR$/config-server/utilities" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/working-files" name="working-files">
+                <projects>
+                  <project path="$PROJECT_DIR$/working-files" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Authetication-users" />
+            <option value="$PROJECT_DIR$/api-gateway" />
+            <option value="$PROJECT_DIR$/books-app" />
+            <option value="$PROJECT_DIR$/config-server" />
+            <option value="$PROJECT_DIR$/config-server/app" />
+            <option value="$PROJECT_DIR$/config-server/list" />
+            <option value="$PROJECT_DIR$/config-server/utilities" />
+            <option value="$PROJECT_DIR$/working-files" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Authetication-users" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Authetication-users" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/api-gateway" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/api-gateway" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/books-app" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/books-app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/config-server" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/config-server" />
+            <option value="$PROJECT_DIR$/config-server/app" />
+            <option value="$PROJECT_DIR$/config-server/list" />
+            <option value="$PROJECT_DIR$/config-server/utilities" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/working-files" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/working-files" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,0 +1,169 @@
+#spring:
+#  application:
+#    name: api-gateway
+#  mvc:
+#    hiddenmethod:
+#      filter:
+#        enabled: true
+#
+#  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        instance-id: api-gateway-i1
+#
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+#
+#
+#server:
+#  port: 8080
+#  forward-headers-strategy: framework
+#
+sample:
+  client:
+    url: http://authentication-users/
+
+
+
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: 'optional:configserver:http://localhost:8888'
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: api-gateway-i1
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: id-books-app
+          uri: lb://books-app
+          predicates:
+            - Path=/api/v0.1/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: myCircuitBreaker
+#                fallbackUri: forward:/anything
+#            - RewritePath=/status/504, /anything
+#        - id: id-authentication-users
+#          uri: lb://authentication-users
+#          predicates:
+#            - Path=/auth/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/anything
+#            - RewritePath=/status/504, /anything
+#        - id: id-working-files
+#          uri: lb://working-files
+#          predicates:
+#            - Path=/api/v0.1/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/anything
+#            - RewritePath=/status/504, /anything
+
+
+
+#        - id: 'id-books-app'
+#          uri: 'lb://books-app'
+#          predicates:
+#            - Path=/api/v0.1/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: exampleCircuitBreaker
+#                fallbackUri: forward:/fallback
+
+
+
+
+server:
+  port: 8080
+  forward-headers-strategy: framework
+
+
+
+
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+#
+#resilience4j:
+#  circuitbreaker:
+#    configs:
+#      default:
+#        register-health-indicator: true
+#        sliding-window-type: COUNT_BASED
+#        sliding-window-size: 10
+#        failure-rate-threshold: 50
+#        wait-duration-in-open-state:
+#          seconds: 5
+#        permitted-number-of-calls-in-half-open-state: 3
+#        automatic-transition-from-open-to-half-open-enabled: true
+#        minimum-number-of-calls: 5
+#  timelimiter:
+#    configs:
+#      default:
+#        timeout-duration:
+#          seconds: 3
+#
+#  retry:
+#    configs:
+#      default:
+#        max-attempts: 3
+#        wait-duration:
+#          seconds: 2
+
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      myCircuitBreaker:
+        registerHealthIndicator: true
+        sliding-window-type: COUNT_BASED
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        automatic-transition-from-open-to-half-open-enabled: true
+        permittedNumberOfCallsInHalfOpenState: 3
+        minimumNumberOfCalls: 5
+    timelimiter:
+      configs:
+        default:
+          timeout-duration:
+            seconds: 3
+    retry:
+        configs:
+          default:
+            max-attempts: 3
+            wait-duration:
+              seconds: 2

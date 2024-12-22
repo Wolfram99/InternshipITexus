@@ -7,3 +7,4 @@ spring:
     name: working-files
   config:
     import: 'optional:configserver:http://localhost:8888'
+

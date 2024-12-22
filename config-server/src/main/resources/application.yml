@@ -5,9 +5,15 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Wolfram99/spring-cloud-config/
+          uri: ${CONFIG_URL:https://github.com/Wolfram99/spring-cloud-config}
           clone-on-start: true
+        bootstrap: true
+      enabled: false
+#          label: main
+#          default-label:
+
+
 
 server:
-  port: 8888
+  port: ${PORT:8888}
 

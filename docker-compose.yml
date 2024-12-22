@@ -1,0 +1,173 @@
+name: Task
+services:
+
+  config-server-app:
+    build: config-server
+    depends_on:
+      - discovery
+    ports:
+      - '8888:8888'
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: 'discovery'
+    networks:
+      - main
+
+
+  discovery:
+    image: consul:1.15.4
+    ports:
+      - '8500:8500'
+    networks:
+      - main
+
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
+#      interval: 10s
+#      timeout: 10s
+#      retries: 5
+
+  file-db:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    networks:
+      - main
+
+  books-db:
+    image: postgres:16
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'pgadmin'
+      POSTGRES_DB: 'InternshipITexus'
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    networks:
+      - main
+
+  api-gateway:
+    build: api-gateway
+    restart: always
+    depends_on:
+      - discovery
+      - config-server-app
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: 'discovery'
+      SPRING_CONFIG_IMPORT: 'configserver:http://config-server-app:8888'
+    ports:
+      - "8080:8080"
+    networks:
+      - main
+
+  books-app:
+    restart: always
+    build: books-app
+#    ports:
+#      - "9090:9090"
+    depends_on:
+      - discovery
+      - books-db
+      - config-server-app
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: 'discovery'
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://books-db:5432/InternshipITexus'
+      SPRING_CONFIG_IMPORT: 'configserver:http://config-server-app:8888'
+    networks:
+      - main
+
+
+  authentication-users:
+    build: Authetication-users
+    restart: always
+#    ports:
+#      - "9191:9191"
+    depends_on:
+      - discovery
+      - books-db
+      - config-server-app
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: 'discovery'
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://books-db:5432/InternshipITexus'
+      SPRING_CONFIG_IMPORT: 'configserver:http://config-server-app:8888'
+    networks:
+      - main
+
+
+
+
+  working-file:
+    build: working-files
+    restart: always
+#    ports:
+#      - "9292:9292"
+    depends_on:
+      - discovery
+      - file-db
+      - config-server-app
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: 'discovery'
+      SPRING_CONFIG_IMPORT: 'configserver:http://config-server-app:8888'
+      SPRING_DATA_MONGODB_URI: 'mongodb://file-db:27017/icons'
+    networks:
+      - main
+
+
+
+#    mongodb://file-db:27017/icons
+
+#name: Task
+#services:
+#  discovery:
+#    image: consul:1.15.4
+#    ports:
+#      - '8500:8500'
+#
+#  config-server-app:
+#    build: config-server
+#    ports:
+#      - '8888:8888'
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://config-server-app:8888/actuator/health"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#
+#  books-db:
+#    image: postgres:16
+##    ports:
+##      - '5432:5432'
+#    expose:
+#      - 5432
+#    environment:
+#      POSTGRES_USER: 'postgres'
+#      POSTGRES_PASSWORD: 'pgadmin'
+#      POSTGRES_DB: 'InternshipITexus'
+#
+#  api-gateway:
+##    restart: always
+#    build: api-gateway
+#    depends_on:
+#      - discovery
+#      - config-server-app
+#    environment:
+#      SPRING_CLOUD_CONSUL_HOST: 'discovery'
+#      SPRING_CONFIG_IMPORT: 'optional:configserver:http://config-server-app:8888/'
+#    ports:
+#      - '8080:8080'
+#
+#  books-app:
+#    build: books-app
+#    ports:
+#      - "9090:9090"
+#    depends_on:
+#      - discovery
+#      - books-db
+#      - config-server-app
+#    environment:
+#      SPRING_CLOUD_CONSUL_HOST: 'discovery'
+#      SPRING_DATASOURCE_URL: 'jdbc:postgresql://books-db:5432/InternshipITexus'
+#      SPRING_CONFIG_IMPORT: 'optional:configserver:http://config-server-app:8888'

@@ -1,6 +1,5 @@
 package org.example.apigateway.controllers;
 
-//import org.example.apigateway.FeignClient.AuthFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package org.example.workingfiles.Entity;
+package org.example.workingfiles.entities;
 
 public class Icon {
 

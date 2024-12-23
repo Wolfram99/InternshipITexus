@@ -1,11 +1,12 @@
-package org.example.workingfiles.Service;
+package org.example.workingfiles.services;
 
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.client.gridfs.model.GridFSFile;
 import org.apache.commons.io.IOUtils;
-import org.example.workingfiles.Entity.Icon;
+
+import org.example.workingfiles.entities.Icon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -19,11 +20,15 @@ import java.io.IOException;
 @Service
 public class IconServiceMongoDbImpl {
 
-    @Autowired
-    private GridFsTemplate template;
+
+    private final GridFsTemplate template;
+    private final GridFsOperations operations;
 
     @Autowired
-    private GridFsOperations operations;
+    public IconServiceMongoDbImpl(GridFsTemplate template, GridFsOperations operations) {
+        this.template = template;
+        this.operations = operations;
+    }
 
     public String upload(Integer bookId, MultipartFile upload) throws IOException {
 

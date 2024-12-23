@@ -1,8 +1,9 @@
 package org.example.workingfiles.controllers;
 
 
-import org.example.workingfiles.Entity.Icon;
-import org.example.workingfiles.Service.IconServiceMongoDbImpl;
+
+import org.example.workingfiles.entities.Icon;
+import org.example.workingfiles.services.IconServiceMongoDbImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
@@ -30,7 +31,7 @@ public class WorkingFilesController {
 
 
     @PostMapping("/upload/{id}")
-    public ResponseEntity<?> upload(@RequestParam("icon")MultipartFile file, @PathVariable("id") Integer bookId) throws IOException {
+    public ResponseEntity<String> upload(@RequestParam("icon")MultipartFile file, @PathVariable("id") Integer bookId) throws IOException {
         return new ResponseEntity<>(service.upload(bookId ,file), HttpStatus.OK);
     }
 
@@ -38,11 +39,11 @@ public class WorkingFilesController {
     public ResponseEntity<ByteArrayResource> download(@PathVariable("id") Integer bookId) throws IOException {
         Icon icon = service.download(bookId);
 
-        String URLEncodedFileName = URLEncoder.encode(icon.getFileName(), StandardCharsets.UTF_8);
-        String ResultFileName = URLEncodedFileName.replace('+', ' ');
+        String urlEncodedFileName = URLEncoder.encode(icon.getFileName(), StandardCharsets.UTF_8);
+        String resultFileName = urlEncodedFileName.replace('+', ' ');
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(icon.getContentType() ))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename*=\"utf8'ru-ru'"+ResultFileName+"\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename*=\"utf8'ru-ru'"+resultFileName+"\"")
                 .body(new ByteArrayResource(icon.getFile()));
     }
 

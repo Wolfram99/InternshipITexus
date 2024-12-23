@@ -90,6 +90,22 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-consumer" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-consumer" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-producer" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-producer" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/working-files" />
         <option name="modules">
           <set>

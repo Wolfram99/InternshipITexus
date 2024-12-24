@@ -1,23 +1,16 @@
 package org.example.booksapp;
 
-import org.example.booksapp.Entity.CoverType;
-import org.example.booksapp.Entity.Genre;
 import org.example.booksapp.Service.BookDMLService;
 import org.example.booksapp.Service.BookDQLService;
-import org.example.booksapp.CustomException.ValidException;
+import org.example.booksapp.customException.ValidException;
 import org.example.booksapp.Loggers.Logger;
-import org.example.booksapp.Entity.Book;
+import org.example.booksapp.entities.Book;
 
-import org.example.booksapp.Service.ServiceImpl.AuthorServiceImpl;
-import org.example.booksapp.Service.ServiceImpl.CoverTypeServiceImpl;
-import org.example.booksapp.Service.ServiceImpl.GenreServiceImpl;
-import org.example.booksapp.repositories.CoverTypeRepository;
 import org.example.booksapp.util.ParserStringToBook;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

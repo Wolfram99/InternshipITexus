@@ -1,10 +1,10 @@
-package org.example.booksapp.Connectors;
+package org.example.booksapp.connectors;
 
 
 
 import jakarta.annotation.PostConstruct;
 
-import org.example.booksapp.Entity.Book;
+import org.example.booksapp.entities.Book;
 import org.example.booksapp.Schems.BookSchemaCSV;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

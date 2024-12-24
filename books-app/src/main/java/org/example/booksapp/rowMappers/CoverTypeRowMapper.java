@@ -1,6 +1,6 @@
 package org.example.booksapp.rowMappers;
 
-import org.example.booksapp.Entity.CoverType;
+import org.example.booksapp.entities.CoverType;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

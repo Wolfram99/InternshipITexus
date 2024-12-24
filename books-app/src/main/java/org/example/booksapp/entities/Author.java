@@ -1,4 +1,4 @@
-package org.example.booksapp.Entity;
+package org.example.booksapp.entities;
 
 import jakarta.persistence.*;
 
@@ -20,18 +20,18 @@ public class Author{
     @Column(name = "surname", nullable = false)
     private String surname;
     @Column(name = "birth_year")
-    private Integer brith_year;
+    private Integer brithYear;
 
 
     public Author() {
     }
 
-    public Author(Integer id, String name, String patronymic, String surname, Integer brith_year) {
+    public Author(Integer id, String name, String patronymic, String surname, Integer brithYear) {
         this.id = id;
         this.name = name;
         this.patronymic = patronymic;
         this.surname = surname;
-        this.brith_year = brith_year;
+        this.brithYear = brithYear;
     }
 
     public Integer getId() {
@@ -66,12 +66,12 @@ public class Author{
         this.surname = surname;
     }
 
-    public Integer getBrith_year() {
-        return brith_year;
+    public Integer getBrithYear() {
+        return brithYear;
     }
 
-    public void setBrith_year(Integer brith_year) {
-        this.brith_year = brith_year;
+    public void setBrithYear(Integer brithYear) {
+        this.brithYear = brithYear;
     }
 
     @Override
@@ -79,12 +79,12 @@ public class Author{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
-        return Objects.equals(id, author.id) && Objects.equals(name, author.name) && Objects.equals(patronymic, author.patronymic) && Objects.equals(surname, author.surname) && Objects.equals(brith_year, author.brith_year);
+        return Objects.equals(id, author.id) && Objects.equals(name, author.name) && Objects.equals(patronymic, author.patronymic) && Objects.equals(surname, author.surname) && Objects.equals(brithYear, author.brithYear);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, patronymic, surname, brith_year);
+        return Objects.hash(id, name, patronymic, surname, brithYear);
     }
 
     @Override
@@ -94,7 +94,7 @@ public class Author{
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
                 ", surname='" + surname + '\'' +
-                ", brith_year=" + brith_year +
+                ", brithYear=" + brithYear +
                 '}';
     }
 }

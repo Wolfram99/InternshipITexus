@@ -1,11 +1,7 @@
-package org.example.booksapp.Entity;
+package org.example.booksapp.entities;
 
 import jakarta.persistence.*;
-import org.apache.logging.log4j.spi.ObjectThreadContextMap;
-//import org.bson.types.ObjectId;
-//import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -28,22 +24,18 @@ public class Book implements Serializable {
     private Integer volume;
 
     @OneToOne(optional = false)
-//    @JoinColumn(name = "author_id", referencedColumnName = "id")
     @PrimaryKeyJoinColumn
     private Author authorId;
 
     @OneToOne(optional = false)
-//    @JoinColumn(name = "genre_id", referencedColumnName = "id")
     @PrimaryKeyJoinColumn
     private Genre genreId;
 
     @OneToOne(optional = false)
-//    @JoinColumn(name = "cover_type_id", referencedColumnName = "id")
     @PrimaryKeyJoinColumn
     private CoverType coverTypeId;
 
-//    @Column(name = "object_id")
-//    private ObjectId objectId;
+
 
     public Book() {
     }

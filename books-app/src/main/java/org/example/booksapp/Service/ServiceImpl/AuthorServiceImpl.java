@@ -1,9 +1,8 @@
 package org.example.booksapp.Service.ServiceImpl;
 
-import org.example.booksapp.Entity.Author;
+import org.example.booksapp.entities.Author;
 import org.example.booksapp.Service.AuthorDMLService;
 import org.example.booksapp.Service.AuthorDQLService;
-import org.example.booksapp.repositories.AuthorRepository;
 import org.example.booksapp.repositories.AuthorRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

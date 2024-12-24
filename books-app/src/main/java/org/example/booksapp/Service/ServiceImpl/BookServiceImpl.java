@@ -1,12 +1,10 @@
 package org.example.booksapp.Service.ServiceImpl;
 
-import org.example.booksapp.Entity.Book;
+import org.example.booksapp.entities.Book;
 import org.example.booksapp.Service.BookDMLService;
 import org.example.booksapp.Service.BookDQLService;
-import org.example.booksapp.repositories.BookRepository;
 import org.example.booksapp.repositories.BookRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

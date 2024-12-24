@@ -1,7 +1,7 @@
-package org.example.booksapp.Controllers;
+package org.example.booksapp.controllers;
 
 
-import org.example.booksapp.Entity.Author;
+import org.example.booksapp.entities.Author;
 import org.example.booksapp.Service.AuthorDMLService;
 import org.example.booksapp.Service.AuthorDQLService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class AuthorController implements ControllerInterface<Author>{
     @Override
     @GetMapping("/{id}")
     public ResponseEntity<Author> find(@PathVariable("id") Integer id) {
-        return new ResponseEntity<Author>(dqlService.findById(id), HttpStatus.OK);
+        return new ResponseEntity<>(dqlService.findById(id), HttpStatus.OK);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package org.example.autheticationusers.security.jwt;
 
+
 import org.example.autheticationusers.entity.UserAccount;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -8,10 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
-public class JwtUserDetails implements UserDetails {
+public class JwtUserDetails implements UserDetails{
 
-
-    private UserAccount user;
+    private final transient UserAccount user;
 
     public JwtUserDetails(UserAccount user) {
         this.user = user;

@@ -16,9 +16,7 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
-
-
-    private final String JWT_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFsZXggTWlraCIsImlhdCI6MTczMjUyMjIyMn0PqZoqxXXmB4dvARBWoQ1FqwwiPSdR7KwT7uGgzhM4";
+    private static final String JWT_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFsZXggTWlraCIsImlhdCI6MTczMjUyMjIyMn0PqZoqxXXmB4dvARBWoQ1FqwwiPSdR7KwT7uGgzhM4";
 
 
     public JwtAuthenticationDto generatedAuthToken(String username){

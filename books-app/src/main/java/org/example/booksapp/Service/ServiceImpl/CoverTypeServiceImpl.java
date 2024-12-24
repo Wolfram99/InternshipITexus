@@ -1,9 +1,8 @@
 package org.example.booksapp.Service.ServiceImpl;
 
-import org.example.booksapp.Entity.CoverType;
+import org.example.booksapp.entities.CoverType;
 import org.example.booksapp.Service.CoverTypeDMLService;
 import org.example.booksapp.Service.CoverTypeDQLService;
-import org.example.booksapp.repositories.CoverTypeRepository;
 import org.example.booksapp.repositories.CoverTypeRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

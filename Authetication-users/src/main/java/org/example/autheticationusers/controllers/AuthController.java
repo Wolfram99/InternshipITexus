@@ -1,22 +1,16 @@
 package org.example.autheticationusers.controllers;
 
-
-
-import jakarta.servlet.http.HttpServletRequest;
 import org.example.autheticationusers.entity.UserAccount;
 import org.example.autheticationusers.service.UserAccountService;
 import org.example.autheticationusers.dto.JwtAuthenticationDto;
 import org.example.autheticationusers.dto.UserAccountCredentialsDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/auth")

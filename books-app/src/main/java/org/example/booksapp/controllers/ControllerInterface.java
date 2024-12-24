@@ -1,4 +1,4 @@
-package org.example.booksapp.Controllers;
+package org.example.booksapp.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

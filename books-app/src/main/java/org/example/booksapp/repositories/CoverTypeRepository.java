@@ -1,6 +1,6 @@
 package org.example.booksapp.repositories;
 
-import org.example.booksapp.Entity.CoverType;
+import org.example.booksapp.entities.CoverType;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

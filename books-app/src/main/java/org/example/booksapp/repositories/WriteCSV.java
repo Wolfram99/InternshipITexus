@@ -1,8 +1,8 @@
 package org.example.booksapp.repositories;
 
 
-import org.example.booksapp.Connectors.ConnectionForTheFile;
-import org.example.booksapp.Entity.Book;
+import org.example.booksapp.connectors.ConnectionForTheFile;
+import org.example.booksapp.entities.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

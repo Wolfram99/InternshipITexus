@@ -1,7 +1,7 @@
 package org.example.booksapp.repositories;
 
 
-import org.example.booksapp.Entity.Author;
+import org.example.booksapp.entities.Author;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)

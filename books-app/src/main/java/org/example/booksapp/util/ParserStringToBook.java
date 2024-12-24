@@ -1,10 +1,7 @@
 package org.example.booksapp.util;
 
 //import org.bson.types.ObjectId;
-import org.example.booksapp.Entity.Author;
-import org.example.booksapp.Entity.Book;
-import org.example.booksapp.Entity.CoverType;
-import org.example.booksapp.Entity.Genre;
+import org.example.booksapp.entities.Book;
 
 public class ParserStringToBook {
 

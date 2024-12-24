@@ -1,7 +1,7 @@
-package org.example.booksapp.Controllers;
+package org.example.booksapp.controllers;
 
 
-import org.example.booksapp.Entity.Genre;
+import org.example.booksapp.entities.Genre;
 import org.example.booksapp.Service.GenreDMLService;
 import org.example.booksapp.Service.GenreDQLService;
 import org.springframework.beans.factory.annotation.Autowired;

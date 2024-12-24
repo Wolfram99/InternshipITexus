@@ -1,4 +1,4 @@
-package org.example.booksapp.Entity;
+package org.example.booksapp.entities;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CacheConcurrencyStrategy;

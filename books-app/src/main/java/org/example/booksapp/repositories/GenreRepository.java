@@ -1,7 +1,7 @@
 package org.example.booksapp.repositories;
 
 
-import org.example.booksapp.Entity.Genre;
+import org.example.booksapp.entities.Genre;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

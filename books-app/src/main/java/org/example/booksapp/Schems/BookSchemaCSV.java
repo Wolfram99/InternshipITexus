@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import org.example.booksapp.Entity.Book;
+import org.example.booksapp.entities.Book;
 
 @JsonPropertyOrder({"id","name","author","short description"})
 public abstract class BookSchemaCSV {

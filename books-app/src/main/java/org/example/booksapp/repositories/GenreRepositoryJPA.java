@@ -1,6 +1,6 @@
 package org.example.booksapp.repositories;
 
-import org.example.booksapp.Entity.Genre;
+import org.example.booksapp.entities.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package org.example.booksapp.rowMappers;
 
-import org.example.booksapp.Entity.Author;
+import org.example.booksapp.entities.Author;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

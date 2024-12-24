@@ -1,7 +1,7 @@
-package org.example.booksapp.Controllers;
+package org.example.booksapp.controllers;
 
 
-import org.example.booksapp.Entity.Book;
+import org.example.booksapp.entities.Book;
 
 import org.example.booksapp.FeignClient.WorkingFilesFeignClient;
 import org.example.booksapp.Service.BookDMLService;
@@ -10,15 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController

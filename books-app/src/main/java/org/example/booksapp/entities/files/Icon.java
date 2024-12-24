@@ -1,4 +1,4 @@
-package org.example.booksapp.Entity.Files;
+package org.example.booksapp.entities.files;
 
 public class Icon {
 

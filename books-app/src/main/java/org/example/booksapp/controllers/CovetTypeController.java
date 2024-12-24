@@ -1,7 +1,7 @@
-package org.example.booksapp.Controllers;
+package org.example.booksapp.controllers;
 
 
-import org.example.booksapp.Entity.CoverType;
+import org.example.booksapp.entities.CoverType;
 import org.example.booksapp.Service.CoverTypeDMLService;
 import org.example.booksapp.Service.CoverTypeDQLService;
 import org.springframework.beans.factory.annotation.Autowired;

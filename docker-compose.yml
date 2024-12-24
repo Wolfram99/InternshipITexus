@@ -110,7 +110,7 @@ services:
       SPRING_CONFIG_IMPORT: ${SPRING_CONFIG_IMPORT}
     networks:
       - main
-      - my_custom_network
+      - kafka_network
 
   kafka-producer:
     build: kafka-producer
@@ -124,7 +124,7 @@ services:
       SPRING_CONFIG_IMPORT: ${SPRING_CONFIG_IMPORT}
     networks:
       - main
-      - my_custom_network
+      - kafka_network
 
 #  zookeeper:
 #    image: confluentinc/cp-zookeeper:latest
@@ -139,38 +139,24 @@ services:
     ports:
       - "2181:2181"
     networks:
-      - my_custom_network
+      - kafka_network
 
 
   kafka:
     image: wurstmeister/kafka
-    ports:
-      - "9092:9092"
+#    ports:
+#      - "9092:9092"
     environment:
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: ${KAFKA_LISTENERS}
+      KAFKA_ADVERTISED_LISTENERS: ${KAFKA_ADVERTISED_LISTENERS}
+      KAFKA_ZOOKEEPER_CONNECT: ${KAFKA_ZOOKEEPER_CONNECT}
       KAFKA_BROKER_ID: 1
     depends_on:
       - zookeeper
     networks:
-      - my_custom_network
+      - kafka_network
 
-#  kafka:
-#    image: bitnami/kafka:latest
-#    restart: always
-#    depends_on:
-#      - discovery
-#    environment:
-#      KAFKA_BROKER_ID: 1
-#      CONSUL_URL: localhost:8500
-#      KAFKA_ADVERTISED_LISTENERS: ${KAFKA_ADVERTISED_LISTENERS}
-#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
-#      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-#    volumes:
-#      - kafka-persistence:/var/lib/kafka/data
-#    networks:
-#      - main
+
 
 
 networks:
@@ -179,7 +165,7 @@ networks:
     internal: true
   publish:
     driver: bridge
-  my_custom_network:
+  kafka_network:
     driver: bridge
 
 

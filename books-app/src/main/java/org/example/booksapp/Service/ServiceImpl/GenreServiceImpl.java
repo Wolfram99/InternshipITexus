@@ -1,9 +1,8 @@
 package org.example.booksapp.Service.ServiceImpl;
 
-import org.example.booksapp.Entity.Genre;
+import org.example.booksapp.entities.Genre;
 import org.example.booksapp.Service.GenreDMLService;
 import org.example.booksapp.Service.GenreDQLService;
-import org.example.booksapp.repositories.GenreRepository;
 import org.example.booksapp.repositories.GenreRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

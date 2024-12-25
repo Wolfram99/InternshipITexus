@@ -2,8 +2,8 @@ package org.example.booksapp.controllers;
 
 
 import org.example.booksapp.entities.Genre;
-import org.example.booksapp.Service.GenreDMLService;
-import org.example.booksapp.Service.GenreDQLService;
+import org.example.booksapp.service.GenreDMLService;
+import org.example.booksapp.service.GenreDQLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;

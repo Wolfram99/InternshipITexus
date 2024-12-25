@@ -3,7 +3,8 @@ package org.example.workingfiles.controllers;
 
 
 import org.example.workingfiles.entities.Icon;
-import org.example.workingfiles.services.IconServiceMongoDbImpl;
+import org.example.workingfiles.services.IconServiceMongoDb;
+import org.example.workingfiles.services.serviceimpl.IconServiceMongoDbImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
@@ -22,10 +23,10 @@ import java.nio.charset.StandardCharsets;
 @RequestMapping("api/v0.1/files")
 public class WorkingFilesController {
 
-    private final IconServiceMongoDbImpl service;
+    private final IconServiceMongoDb service;
 
     @Autowired
-    public WorkingFilesController(IconServiceMongoDbImpl service) {
+    public WorkingFilesController(IconServiceMongoDb service) {
         this.service = service;
     }
 

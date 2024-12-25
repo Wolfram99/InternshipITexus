@@ -1,8 +1,8 @@
 package org.example.booksapp.bookDAO;
 
 import org.example.booksapp.entities.Book;
-import org.example.booksapp.Service.BookDMLService;
-import org.example.booksapp.Service.BookDQLService;
+import org.example.booksapp.service.BookDMLService;
+import org.example.booksapp.service.BookDQLService;
 import org.example.booksapp.repositories.ReadCSV;
 import org.example.booksapp.repositories.WriteCSV;
 import org.springframework.beans.factory.annotation.Autowired;

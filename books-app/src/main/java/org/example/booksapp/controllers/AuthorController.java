@@ -2,8 +2,8 @@ package org.example.booksapp.controllers;
 
 
 import org.example.booksapp.entities.Author;
-import org.example.booksapp.Service.AuthorDMLService;
-import org.example.booksapp.Service.AuthorDQLService;
+import org.example.booksapp.service.AuthorDMLService;
+import org.example.booksapp.service.AuthorDQLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;

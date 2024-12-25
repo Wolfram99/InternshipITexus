@@ -4,7 +4,7 @@ package org.example.booksapp.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.example.booksapp.Loggers.Logger;
+import org.example.booksapp.loggers.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
@@ -29,7 +29,7 @@ public class LoggingServiceAspect {
         this.cash = new HashMap<>();
     }
 
-    @Pointcut("within(org.example.booksapp.Service.*)")
+    @Pointcut("within(org.example.booksapp.service.*)")
     public void anyServiceMethod(){}
 
     @Before("anyServiceMethod()")
@@ -40,7 +40,7 @@ public class LoggingServiceAspect {
 
 
 
-    @Pointcut("execution(* org.example.booksapp.Service..find*(*))")
+    @Pointcut("execution(* org.example.booksapp.service..find*(*))")
     public void hasInOutputValuesServiceMethod(){}
 
 

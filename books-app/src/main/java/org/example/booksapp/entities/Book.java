@@ -19,7 +19,7 @@ public class Book implements Serializable {
     @Column(name = "short_description")
     private String shortDescription;
     @Column(name = "publication_year")
-    private Integer publication_year;
+    private Integer publicationYear;
     @Column(name = "volume",nullable = false)
     private Integer volume;
 
@@ -41,18 +41,16 @@ public class Book implements Serializable {
     }
 
 
-    public Book(Integer id, String name, String shortDescription, Integer publication_year, Integer volume, Author authorId, Genre genreId, CoverType coverTypeId
-//            , ObjectId objectId
-    ) {
+    public Book(Integer id, String name, String shortDescription, Integer publicationYear, Integer volume,
+                Author authorId, Genre genreId, CoverType coverTypeId) {
         this.id = id;
         this.name = name;
         this.shortDescription = shortDescription;
-        this.publication_year = publication_year;
+        this.publicationYear = publicationYear;
         this.volume = volume;
         this.authorId = authorId;
         this.genreId = genreId;
         this.coverTypeId = coverTypeId;
-//        this.objectId = objectId;
     }
 
     public Integer getId() {
@@ -79,12 +77,12 @@ public class Book implements Serializable {
         this.shortDescription = shortDescription;
     }
 
-    public Integer getPublication_year() {
-        return publication_year;
+    public Integer getPublicationYear() {
+        return publicationYear;
     }
 
-    public void setPublication_year(Integer publication_year) {
-        this.publication_year = publication_year;
+    public void setPublicationYear(Integer publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
     public Integer getVolume() {
@@ -119,29 +117,17 @@ public class Book implements Serializable {
         this.coverTypeId = coverTypeId;
     }
 
-//    public ObjectId getObjectId() {
-//        return objectId;
-//    }
-//
-//    public void setObjectId(ObjectId objectId) {
-//        this.objectId = objectId;
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(id, book.id) && Objects.equals(name, book.name) && Objects.equals(shortDescription, book.shortDescription) && Objects.equals(publication_year, book.publication_year) && Objects.equals(volume, book.volume) && Objects.equals(authorId, book.authorId) && Objects.equals(genreId, book.genreId) && Objects.equals(coverTypeId, book.coverTypeId)
-//                && Objects.equals(objectId, book.objectId)
-                ;
+        return Objects.equals(id, book.id) && Objects.equals(name, book.name) && Objects.equals(shortDescription, book.shortDescription) && Objects.equals(publicationYear, book.publicationYear) && Objects.equals(volume, book.volume) && Objects.equals(authorId, book.authorId) && Objects.equals(genreId, book.genreId) && Objects.equals(coverTypeId, book.coverTypeId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, shortDescription, publication_year, volume, authorId, genreId, coverTypeId
-//                , objectId
-        );
+        return Objects.hash(id, name, shortDescription, publicationYear, volume, authorId, genreId, coverTypeId);
     }
 
     @Override
@@ -150,7 +136,7 @@ public class Book implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", shortDescription='" + shortDescription + '\'' +
-                ", publication_year=" + publication_year +
+                ", publicationYear=" + publicationYear +
                 ", volume=" + volume +
                 ", authorId=" + authorId +
                 ", genreId=" + genreId +

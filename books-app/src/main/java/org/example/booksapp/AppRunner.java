@@ -1,9 +1,9 @@
 package org.example.booksapp;
 
-import org.example.booksapp.Service.BookDMLService;
-import org.example.booksapp.Service.BookDQLService;
+import org.example.booksapp.service.BookDMLService;
+import org.example.booksapp.service.BookDQLService;
 import org.example.booksapp.customException.ValidException;
-import org.example.booksapp.Loggers.Logger;
+import org.example.booksapp.loggers.Logger;
 import org.example.booksapp.entities.Book;
 
 import org.example.booksapp.util.ParserStringToBook;

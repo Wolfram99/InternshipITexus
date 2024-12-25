@@ -3,9 +3,9 @@ package org.example.booksapp.controllers;
 
 import org.example.booksapp.entities.Book;
 
-import org.example.booksapp.FeignClient.WorkingFilesFeignClient;
-import org.example.booksapp.Service.BookDMLService;
-import org.example.booksapp.Service.BookDQLService;
+import org.example.booksapp.feignclient.WorkingFilesFeignClient;
+import org.example.booksapp.service.BookDMLService;
+import org.example.booksapp.service.BookDQLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 

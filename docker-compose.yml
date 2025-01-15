@@ -1,6 +1,23 @@
 name: Task
 services:
 
+  api-gateway:
+    build: api-gateway
+    restart: always
+    depends_on:
+      - discovery
+      - config-server-app
+    environment:
+      SPRING_CLOUD_CONSUL_HOST: ${SPRING_CLOUD_CONSUL_HOST}
+      SPRING_CONFIG_IMPORT: ${SPRING_CONFIG_IMPORT}
+    ports:
+      - "8080:8080"
+    networks:
+      - main
+      - publish
+
+
+
   file-db:
     image: mongo:latest
     volumes:
@@ -27,20 +44,6 @@ services:
       - main
       - publish
 
-  api-gateway:
-    build: api-gateway
-    restart: always
-    depends_on:
-      - discovery
-      - config-server-app
-    environment:
-      SPRING_CLOUD_CONSUL_HOST: ${SPRING_CLOUD_CONSUL_HOST}
-      SPRING_CONFIG_IMPORT: ${SPRING_CONFIG_IMPORT}
-    ports:
-      - "8080:8080"
-    networks:
-      - main
-      - publish
 
 
   config-server-app:

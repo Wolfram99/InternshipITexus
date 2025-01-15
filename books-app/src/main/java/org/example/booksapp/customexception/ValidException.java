@@ -1,4 +1,4 @@
-package org.example.booksapp.customException;
+package org.example.booksapp.customexception;
 
 public class ValidException extends RuntimeException {
   public ValidException(){

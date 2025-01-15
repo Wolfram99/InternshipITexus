@@ -26,6 +26,12 @@ public class Author{
     public Author() {
     }
 
+    public Author(Integer id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
     public Author(Integer id, String name, String patronymic, String surname, Integer brithYear) {
         this.id = id;
         this.name = name;

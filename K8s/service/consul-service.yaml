@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: consul-svc
+spec:
+  selector:
+    app: consul-app
+  ports:
+    - protocol: TCP
+      name: consul-app
+      port: 8500
+  type: NodePort
+  

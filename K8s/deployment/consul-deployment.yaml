@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consul-deployment
+  labels:
+    app: consul-app
+spec:
+  selector:
+    matchLabels:
+      app: consul-app
+  template:
+    metadata:
+      labels:
+        app: consul-app
+    spec:
+      containers:
+        - name: consul-app
+          image: consul:1.15.4
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8500
+      restartPolicy: Always
+      

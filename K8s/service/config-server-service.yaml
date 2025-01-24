@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: task-config-server-svc
+spec:
+  selector:
+    app: task-config-server
+  ports:
+    - protocol: TCP
+      name: config-server
+      port: 8888
+  type: NodePort
+

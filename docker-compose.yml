@@ -50,7 +50,7 @@ services:
     ports:
       - '8888:8888'
     environment:
-      SPRING_CLOUD_CONSUL_HOST: ${SPRING_CONFIG_IMPORT}
+      SPRING_CLOUD_CONSUL_HOST: ${SPRING_CLOUD_CONSUL_HOST}
     networks:
       - main
       - publish

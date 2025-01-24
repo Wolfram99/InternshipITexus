@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-config-server-deployment
+  labels:
+    app: task-config-server
+spec:
+  selector:
+    matchLabels:
+      app: task-config-server
+  template:
+    metadata:
+      labels:
+        app: task-config-server
+    spec:
+      containers:
+        - name: config-server
+          image: wolfram999/task-config-server:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8888
+          env:
+            - name: SPRING_CLOUD_CONSUL_HOST
+              value: discovery

@@ -80,3 +80,12 @@ Task10
 ![image](https://github.com/user-attachments/assets/268e03d1-f956-4427-b2f1-6fc768f21245)
 
 ![image](https://github.com/user-attachments/assets/3477b210-e983-49b1-b75f-a8feb87adfff)
+
+---
+Kubernetes
+![Uploading lens 2.png…]()
+![lens 1](https://github.com/user-attachments/assets/23a0203c-a249-4016-b0f2-d2da105c3c3e)
+![minikube-dashboard2](https://github.com/user-attachments/assets/b6a13249-059f-440a-819a-18b09f9797c6)
+![minikube-dashboard1](https://github.com/user-attachments/assets/0d83bd03-d524-4f13-a857-2812b550cfc8)
+![minikube-dashboard](https://github.com/user-attachments/assets/5f5ca79f-480a-425c-a367-02ec1fe1c37d)
+![nexus repo](https://github.com/user-attachments/assets/901f63ee-142f-40f9-a98f-4a703e06e61b)

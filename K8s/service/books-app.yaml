@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: books-app-deployment
+  labels:
+    app: books-app
+spec:
+  selector:
+    matchLabels:
+      app: books-app
+  template:
+    metadata:
+      labels:
+        app: books-app
+    spec:
+      containers:
+        - name: books-app
+          image: wolfram999/task-books-app:latest
+          ports:
+            - containerPort: 8085
+          env:
+            - name: SPRING_CLOUD_CONSUL_HOST
+              value: consul-svc.default.svc.cluster.local
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://books-db-svc:5432/InternshipITexus
+            - name: SPRING_CONFIG_IMPORT
+              value: configserver:http://config-server@task-config-server-svc.default.svc.cluster.local:8888
+
+      restartPolicy: Always
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: books-app-svc
+spec:
+  selector:
+    app: books-app
+  ports:
+    - protocol: TCP
+      name: books-app
+      port: 8085
+  type: NodePort
+
+
+
+
+
+
+
+
+
+

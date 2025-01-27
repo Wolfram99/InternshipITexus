@@ -16,9 +16,22 @@ spec:
       containers:
         - name: config-server
           image: wolfram999/task-config-server:latest
-          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8888
           env:
             - name: SPRING_CLOUD_CONSUL_HOST
-              value: discovery
+              value: consul-svc.default.svc.cluster.local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: task-config-server-svc
+spec:
+  selector:
+    app: task-config-server
+  ports:
+    - protocol: TCP
+      name: config-server
+      port: 8888
+  type: NodePort
+

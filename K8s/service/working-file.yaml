@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: working-file-deployment
+  labels:
+    app: working-file
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: working-file
+  template:
+    metadata:
+      labels:
+        app: working-file
+    spec:
+      containers:
+        - name: working-file
+          image: wolfram999/task-working-file:latest
+          ports:
+            - containerPort: 8087
+              protocol: TCP
+          env:
+            - name: SPRING_CLOUD_CONSUL_HOST
+              value: consul-svc.default.svc.cluster.local
+            - name: SPRING_DATA_MONGODB_URI
+              value: mongodb://mongo-db-svc:27017/icons
+            - name: SPRING_CONFIG_IMPORT
+              value: configserver:http://config-server@task-config-server-svc.default.svc.cluster.local:8888
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: working-file-svc
+spec:
+  selector:
+    app: working-file
+  ports:
+    - protocol: TCP
+      name: http
+      port: 8087
+  type: NodePort
+

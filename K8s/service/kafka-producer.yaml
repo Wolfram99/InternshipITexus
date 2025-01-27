@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-producer-deployment
+  labels:
+    app: kafka-producer
+spec:
+  selector:
+    matchLabels:
+      app: kafka-producer
+  template:
+    metadata:
+      labels:
+        app: kafka-producer
+    spec:
+      containers:
+        - name: kafka-producer
+          image: wolfram999/task-kafka-producer:latest
+          ports:
+            - containerPort: 8089
+              protocol: TCP
+          env:
+            - name: SPRING_CLOUD_CONSUL_HOST
+              value: consul-svc.default.svc.cluster.local
+            - name: SPRING_CONFIG_IMPORT
+              value: configserver:http://config-server@task-config-server-svc.default.svc.cluster.local:8888
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-producer-svc
+spec:
+  selector:
+    app: kafka-producer
+  ports:
+    - protocol: TCP
+      name: kafka-producer
+      port: 8089
+  type: NodePort

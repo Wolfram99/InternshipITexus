@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -38,3 +39,62 @@ spec:
       name: api-gateway
       port: 8080
   type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: task-api-gateway-ingress
+spec:
+  rules:
+    - host: authentication.users.192.168.59.102.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: authentication-users-svc
+                port:
+                  name: http
+
+    - host: books.app.192.168.59.102.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: books-app-svc
+                port:
+                  name: http
+
+    - host: kafka.consumer.192.168.59.102.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kafka-consumer-svc
+                port:
+                  name: http
+    - host: kafka.producer.192.168.59.102.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kafka-producer-svc
+                port:
+                  name: http
+    - host: working.file.192.168.59.102.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: working-file-svc
+                port:
+                  name: http

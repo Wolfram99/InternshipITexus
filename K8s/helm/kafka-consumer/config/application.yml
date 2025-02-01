@@ -1,0 +1,28 @@
+spring:
+  kafka:
+    bootstrap-servers: kafka-svc:30500
+    consumer:
+      group-id: consumer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  cloud:
+    consul:
+      discovery:
+        instance-id: kafka-consumer-i1
+    config:
+      import-check:
+        enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true

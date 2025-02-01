@@ -12,6 +12,7 @@
 #RUN gradle build
 
 
+
 FROM openjdk:17-jdk-slim
 ENV ARTIFACT_NAME=api-gateway-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/opt/app/

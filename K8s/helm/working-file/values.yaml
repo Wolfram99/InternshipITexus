@@ -1,0 +1,4 @@
+image: wolfram999/task-working-file:1.0.2
+containerPort: 8080
+ingress:
+  host: working.file.192.168.59.102.nip.io

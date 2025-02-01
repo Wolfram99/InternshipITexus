@@ -31,7 +31,6 @@ spec:
     app: task-config-server
   ports:
     - protocol: TCP
-      name: config-server
+      name: http
       port: 8888
   type: NodePort
-

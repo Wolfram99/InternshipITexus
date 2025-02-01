@@ -91,3 +91,24 @@ Kubernetes
 ![minikube-dashboard1](https://github.com/user-attachments/assets/0d83bd03-d524-4f13-a857-2812b550cfc8)
 ![minikube-dashboard](https://github.com/user-attachments/assets/5f5ca79f-480a-425c-a367-02ec1fe1c37d)
 ![nexus repo](https://github.com/user-attachments/assets/901f63ee-142f-40f9-a98f-4a703e06e61b)
+
+
+----------------
+Prometheus
+
+работает -> /actuator/prometheus
+![image](https://github.com/user-attachments/assets/ac8dd799-99a0-47b4-ab86-d87ccb03e9d6)
+
+Grafana
+![image](https://github.com/user-attachments/assets/0bed8fa9-ed7a-42d6-b17c-c37ff456c4c5)
+![image](https://github.com/user-attachments/assets/2c527691-9f64-4dcf-8bc9-c2f7846c6f73)
+
+----------------
+Lens IDE -> все deployment запущены как микросервисы в namespace "default", так и сервисы для сбора и отображения метрик в namespace "monitoring"
+
+![image](https://github.com/user-attachments/assets/27ae0105-a2c5-4af8-a4e5-035061564e4b)
+
+
+
+
+

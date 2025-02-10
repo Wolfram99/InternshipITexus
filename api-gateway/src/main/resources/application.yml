@@ -1,0 +1,13 @@
+sample:
+  client:
+    url: http://authentication-users/
+
+server:
+  port: 8080
+  forward-headers-strategy: framework
+
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: 'optional:configserver:http://localhost:8888'

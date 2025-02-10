@@ -1,0 +1,63 @@
+package org.example.booksapp.Entity;
+
+import jakarta.persistence.*;
+
+import java.util.Objects;
+
+
+@Entity
+@Table(name = "genres")
+public class Genre {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "genre",nullable = false,unique = true)
+    private String genre;
+
+    public Genre() {
+    }
+
+    public Genre(Integer id, String genre) {
+        this.id = id;
+        this.genre = genre;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Genre genre1 = (Genre) o;
+        return Objects.equals(id, genre1.id) && Objects.equals(genre, genre1.genre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, genre);
+    }
+
+    @Override
+    public String toString() {
+        return "Genre{" +
+                "id=" + id +
+                ", genre='" + genre + '\'' +
+                '}';
+    }
+}

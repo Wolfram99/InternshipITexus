@@ -1,26 +1,33 @@
 package org.example.Service;
 
 import com.fasterxml.jackson.databind.MappingIterator;
+import org.example.AppRunner;
 import org.example.Connectors.ConnectionForTheFile;
 import org.example.Connectors.ConnectorBookCSV;
+import org.example.Loggers.Logger;
 import org.example.Models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 @Component
 public class ReadCSV {
     private final ConnectionForTheFile connection;
+    private final MessageSource messageSource;
+    private Logger logger;
 
     @Autowired
-    public ReadCSV(ConnectionForTheFile connection) {
-        super();
+    public ReadCSV(ConnectionForTheFile connection, MessageSource messageSource, Logger logger) {
         this.connection = connection;
+        this.messageSource = messageSource;
+        this.logger = logger;
     }
 
     public Book findById(Integer id) {
@@ -34,7 +41,7 @@ public class ReadCSV {
                 books.add(bookList.next());
             }
         } catch (IOException e) {
-            System.out.println("Файл не был найден!");
+            logger.print(messageSource.getMessage("exceptionMessage.IOException", null, Locale.forLanguageTag(AppRunner.lang)));
         }
         return books;
     }

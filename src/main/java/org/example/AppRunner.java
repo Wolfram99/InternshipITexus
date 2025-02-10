@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.CustomException.ValidException;
+import org.example.Loggers.Logger;
 import org.example.Models.Book;
 import org.example.Service.BookDAO.BookDMLCommand;
 import org.example.Service.BookDAO.BookDQLCommand;
@@ -8,43 +9,43 @@ import org.example.Service.BookDAO.BookDQLCommand;
 import org.example.Service.ParserStringToBook;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 @Component
 public class AppRunner {
     private final BookDMLCommand dml;
     private final BookDQLCommand dql;
+    private final Logger logger;
+    private final MessageSource messageSource;
+    public static String lang;
 
     @Autowired
-    public AppRunner(BookDMLCommand dml, BookDQLCommand dql) {
+    public AppRunner(BookDMLCommand dml, BookDQLCommand dql, Logger logger, MessageSource messageSource) {
         this.dml = dml;
         this.dql = dql;
+        this.logger = logger;
+        this.messageSource = messageSource;
     }
 
     public void run() {
         Scanner sc = new Scanner(System.in);
+        logger.print(messageSource.getMessage("application.startMessage",null,null));
+        lang = sc.nextLine();
+
         boolean active = true;
 
         while (active) {
-            String HEADER_MENU = """
-                    --------------------------------------------------------------
-                    Enter the sequence number of the operation you want to perform:
-                    (Enter an integer!)
-                    --------------------------------------------------------------
-                    1) Show all User.
-                    2) Create User.
-                    3) Edit User.
-                    4) Delete User.
-                    6) Exit.
-                    """;
 
-            System.out.println(HEADER_MENU);
+
+            logger.print(messageSource.getMessage("application.headerMenu",null, Locale.forLanguageTag(lang)));
 
             while (!sc.hasNextInt()) {
-                System.out.println("You have entered a text value, you must enter an integer value!");
+                logger.print(messageSource.getMessage("validation.enteringIntegerNumber",null,Locale.forLanguageTag(lang) ));
                 sc.nextLine();
             }
 
@@ -53,35 +54,33 @@ public class AppRunner {
             List<Book> temp = dql.findAll();
 
             switch (idOperation) {
-                case 1 -> temp.forEach(System.out::println);
+                case 1 -> temp.forEach(user -> logger.print(user.toString()));
                 case 2 -> {
-                    System.out.println("Create User: ");
-                    System.out.println("Enter a new user in the format: id,name,author,short description");
+                    logger.print(messageSource.getMessage("application.titleCreate",null, Locale.forLanguageTag(lang)));
                     dml.insert(ParserStringToBook.parse(sc.nextLine()));
                 }
                 case 3 ->{
 
-                    temp.forEach(System.out::println);
-                    System.out.println("Enter the id of the user you want to update: ");
-                    System.out.println("Enter the user you want to change with the same id in the format: id,name,author,short description");
+                    temp.forEach(user -> logger.print(user.toString()));
+                    logger.print(messageSource.getMessage("application.titleUpdate",null,Locale.forLanguageTag(lang)));
                     dml.update(ParserStringToBook.parse(sc.nextLine()));
                 }
                 case 4 ->{
-                    System.out.println("Enter the id of the user you want to delete: ");
-                    temp.forEach(System.out::println);
+                    logger.print(messageSource.getMessage("application.titleDelete",null,Locale.forLanguageTag(lang)));
+                    temp.forEach(user -> logger.print(user.toString()));
                     dml.delete(sc.nextInt());
                     sc.nextLine();
                 }
                 case 6 -> {
-                    System.out.println("The work is completed!");
+                    logger.print(messageSource.getMessage("application.titleExit",null,Locale.forLanguageTag(lang)));
                     active = false;
 
                 }
                 default -> {
                     try {
-                        throw new ValidException("The entered value is incorrect!");
+                        throw new ValidException(messageSource.getMessage("exceptionMessage.validException",null,Locale.forLanguageTag(lang)));
                     } catch ( ValidException e) {
-                        System.out.println(e.getMessage());
+                        logger.print(e.getMessage());
                     }
                 }
             }

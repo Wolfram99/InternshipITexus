@@ -26,7 +26,6 @@ public class ConnectorBookCSV implements ConnectionForTheFile{
 
     @PostConstruct
     private void initMethod() {
-        System.out.println("ANNotations post ");
         csvMapper = new CsvMapper();
         csvMapper.addMixIn(Book.class, BookSchemaCSV.class);
     }

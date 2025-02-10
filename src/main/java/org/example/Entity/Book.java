@@ -1,7 +1,11 @@
 package org.example.Entity;
 
 import jakarta.persistence.*;
+import org.apache.logging.log4j.spi.ObjectThreadContextMap;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -23,8 +27,6 @@ public class Book implements Serializable {
     @Column(name = "volume",nullable = false)
     private Integer volume;
 
-
-
     @OneToOne(optional = false)
 //    @JoinColumn(name = "author_id", referencedColumnName = "id")
     @PrimaryKeyJoinColumn
@@ -40,23 +42,23 @@ public class Book implements Serializable {
     @PrimaryKeyJoinColumn
     private CoverType coverTypeId;
 
-
-
-
-
+    @Column(name = "object_id")
+    private ObjectId objectId;
 
     public Book() {
     }
 
-    public Book(Integer id, String name, String shortDescription, Author authorId, Genre genreId, Integer publication_year, Integer volume, CoverType coverTypeId) {
+
+    public Book(Integer id, String name, String shortDescription, Integer publication_year, Integer volume, Author authorId, Genre genreId, CoverType coverTypeId, ObjectId objectId) {
         this.id = id;
         this.name = name;
         this.shortDescription = shortDescription;
-        this.authorId = authorId;
-        this.genreId = genreId;
         this.publication_year = publication_year;
         this.volume = volume;
+        this.authorId = authorId;
+        this.genreId = genreId;
         this.coverTypeId = coverTypeId;
+        this.objectId = objectId;
     }
 
     public Integer getId() {
@@ -82,8 +84,6 @@ public class Book implements Serializable {
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }
-
-
 
     public Integer getPublication_year() {
         return publication_year;
@@ -125,18 +125,25 @@ public class Book implements Serializable {
         this.coverTypeId = coverTypeId;
     }
 
+    public ObjectId getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(ObjectId objectId) {
+        this.objectId = objectId;
+    }
+
     @Override
     public boolean equals(Object o) {
-
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Objects.equals(id, book.id) && Objects.equals(name, book.name) && Objects.equals(shortDescription, book.shortDescription) && Objects.equals(authorId, book.authorId) && Objects.equals(genreId, book.genreId) && Objects.equals(publication_year, book.publication_year) && Objects.equals(volume, book.volume) && Objects.equals(coverTypeId, book.coverTypeId);
+        return Objects.equals(id, book.id) && Objects.equals(name, book.name) && Objects.equals(shortDescription, book.shortDescription) && Objects.equals(publication_year, book.publication_year) && Objects.equals(volume, book.volume) && Objects.equals(authorId, book.authorId) && Objects.equals(genreId, book.genreId) && Objects.equals(coverTypeId, book.coverTypeId) && Objects.equals(objectId, book.objectId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, shortDescription, authorId, genreId, publication_year, volume, coverTypeId);
+        return Objects.hash(id, name, shortDescription, publication_year, volume, authorId, genreId, coverTypeId, objectId);
     }
 
     @Override
@@ -145,11 +152,12 @@ public class Book implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", shortDescription='" + shortDescription + '\'' +
-                ", authorId=" + authorId +
-                ", genreId=" + genreId +
                 ", publication_year=" + publication_year +
                 ", volume=" + volume +
+                ", authorId=" + authorId +
+                ", genreId=" + genreId +
                 ", coverTypeId=" + coverTypeId +
+                ", objectId=" + objectId +
                 '}';
     }
 }

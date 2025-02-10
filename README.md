@@ -60,3 +60,23 @@ Task3
 
 На скриншоте снизу показано срабатывание именованных Pointcut по Advice
 ![image](https://github.com/user-attachments/assets/87b98bf4-07e5-4938-b86f-f19462bda9a0)
+
+
+Task10
+Добавлена возможность загружать и скачивать файлы до 1GB:
+
+Добавлено в сущность книги её изображение, эндпоинты для upload (multipart form-data)
+и download изображения по id книги. В таблице книг храниться только id файла в лежащего в MongoDB.
+
+Добавлена возможность аплоада и скачивания больших файлов (до 1 гб) на малых ресурсах JVM (параметр запуска "-Xmx512m").
+![image](https://github.com/user-attachments/assets/eae4445a-7ea1-4915-acc8-e3c0bb1d2997)
+
+![image](https://github.com/user-attachments/assets/417f7802-584f-4fa6-adaf-eacf5c1528e8)
+
+
+Скачивание файлов реализовано через Content-Disposition хедер и 
+поддерживать имена файлов на русском.
+
+![image](https://github.com/user-attachments/assets/268e03d1-f956-4427-b2f1-6fc768f21245)
+
+![image](https://github.com/user-attachments/assets/3477b210-e983-49b1-b75f-a8feb87adfff)

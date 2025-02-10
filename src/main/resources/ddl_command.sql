@@ -29,3 +29,7 @@ CREATE TABLE Books(
 
 
 
+
+ALTER TABLE BOOKS ADD COLUMN "object_id" VARCHAR(255);
+
+

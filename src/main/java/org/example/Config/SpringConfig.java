@@ -3,14 +3,16 @@ package org.example.Config;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.Locale;
 
 @Configuration
-@ComponentScan("org.example")
+//@ComponentScan("org.example")
 @PropertySource("classpath:pathToFile.properties")
 @EnableAspectJAutoProxy
-@Import({DataSourceConfig.class,HibernateConfig.class})
+@EnableWebMvc
+//@Import({DataSourceConfig.class,HibernateConfig.class})
 public class SpringConfig {
 
     @Bean

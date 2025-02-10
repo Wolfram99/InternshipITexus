@@ -4,39 +4,45 @@ import org.example.Entity.CoverType;
 import org.example.Service.CoverTypeDMLService;
 import org.example.Service.CoverTypeDQLService;
 import org.example.repositories.CoverTypeRepository;
+import org.example.repositories.CoverTypeRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class CoverTypeServiceImpl implements CoverTypeDMLService, CoverTypeDQLService {
 
-    private final CoverTypeRepository repository;
+    private final CoverTypeRepositoryJPA repository;
 
     @Autowired
-    public CoverTypeServiceImpl(CoverTypeRepository repository) {
+    public CoverTypeServiceImpl(CoverTypeRepositoryJPA repository) {
         this.repository = repository;
     }
 
     @Override
+    @Transactional
     public void insert(CoverType coverType) {
-        repository.insert(coverType);
+        repository.save(coverType);
     }
 
     @Override
+    @Transactional
     public void update(CoverType coverType) {
-        repository.update(coverType);
+        repository.save(coverType);
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 
     @Override
     public CoverType findById(Integer id) {
-        return repository.findById(id);
+        return repository.findById(id).get();
     }
 
     @Override

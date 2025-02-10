@@ -46,7 +46,7 @@ public class LoggingServiceAspect {
 
     @AfterReturning(value = "hasInOutputValuesServiceMethod()", returning = "result")
     public void afterReturningWithInOutputValuesServiceMethod(JoinPoint joinPoint, Object result){
-        logger.print(messageSource.getMessage("application.aspect.inputOutputValuesServiceMethods",new Object[]{joinPoint.getSignature(),Arrays.toString(joinPoint.getArgs()),result},null));
+//        logger.print(messageSource.getMessage("application.aspect.inputOutputValuesServiceMethods",new Object[]{joinPoint.getSignature(),Arrays.toString(joinPoint.getArgs()),result},null));
     }
 
 

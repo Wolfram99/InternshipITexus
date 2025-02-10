@@ -1,0 +1,9 @@
+
+
+spring:
+  application:
+    name: kafka-consumer
+
+
+server:
+  port: 0

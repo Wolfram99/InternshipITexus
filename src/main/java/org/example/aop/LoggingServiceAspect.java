@@ -50,7 +50,7 @@ public class LoggingServiceAspect {
     }
 
 
-    @Around("hasInOutputValuesServiceMethod() && within(org.example.Service.BookDAO.BookDao)")
+    @Around("hasInOutputValuesServiceMethod() && within(org.example.BookDAO.BookDao)")
     public Object addCashParam(ProceedingJoinPoint pjp) throws Throwable{
          var result = pjp.proceed();
         cash.put( Arrays.toString(pjp.getArgs()), result);

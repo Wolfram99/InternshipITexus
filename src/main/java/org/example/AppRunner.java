@@ -1,14 +1,15 @@
 package org.example;
 
+import org.example.Service.BookDMLService;
+import org.example.Service.BookDQLService;
 import org.example.CustomException.ValidException;
 import org.example.Loggers.Logger;
 import org.example.Models.Book;
-import org.example.Service.BookDAO.BookDMLCommand;
-import org.example.Service.BookDAO.BookDQLCommand;
 
 import org.example.util.ParserStringToBook;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
@@ -18,14 +19,15 @@ import java.util.Scanner;
 
 @Component
 public class AppRunner {
-    private final BookDMLCommand dml;
-    private final BookDQLCommand dql;
+    private final BookDMLService dml;
+    private final BookDQLService dql;
     private final Logger logger;
     private final MessageSource messageSource;
     public static String lang;
 
+
     @Autowired
-    public AppRunner(BookDMLCommand dml, BookDQLCommand dql, Logger logger, MessageSource messageSource) {
+    public AppRunner(@Qualifier("bookServiceImpl") BookDMLService dml, @Qualifier("bookServiceImpl") BookDQLService dql, Logger logger, MessageSource messageSource) {
         this.dml = dml;
         this.dql = dql;
         this.logger = logger;
@@ -33,6 +35,7 @@ public class AppRunner {
     }
 
     public void run() {
+
         Scanner sc = new Scanner(System.in);
         logger.print(messageSource.getMessage("application.startMessage",null,null));
         lang = sc.nextLine();

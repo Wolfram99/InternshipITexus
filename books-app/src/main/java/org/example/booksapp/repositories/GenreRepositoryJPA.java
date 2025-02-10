@@ -4,6 +4,10 @@ import org.example.booksapp.entities.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface GenreRepositoryJPA extends JpaRepository<Genre, Integer> {
+
+    Optional<Genre> findByGenre(String genre);
 }

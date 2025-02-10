@@ -134,14 +134,12 @@ public class Book implements Serializable {
     public String toString() {
         return "Book{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", shortDescription='" + shortDescription + '\'' +
+                ", name='" + name +
+                ", shortDescription='" + shortDescription +
                 ", publicationYear=" + publicationYear +
                 ", volume=" + volume +
                 ", authorId=" + authorId +
                 ", genreId=" + genreId +
-                ", coverTypeId=" + coverTypeId +
-//                ", objectId=" + objectId +
-                '}';
+                ", coverTypeId=" + coverTypeId +'}';
     }
 }

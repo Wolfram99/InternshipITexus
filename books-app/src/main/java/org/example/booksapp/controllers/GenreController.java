@@ -40,7 +40,7 @@ public class GenreController implements ControllerInterface<Genre>{
 
     @Override
     @PostMapping
-    public HttpStatus add(@ModelAttribute Genre genre) {
+    public HttpStatus add(@RequestBody Genre genre) {
         dmlService.insert(genre);
 
         return HttpStatus.OK;
@@ -50,12 +50,12 @@ public class GenreController implements ControllerInterface<Genre>{
     @DeleteMapping("/{id}")
     public HttpStatus delete(@PathVariable("id") Integer id) {
         dmlService.delete(id);
-        return null;
+        return HttpStatus.OK;
     }
 
     @Override
     @PutMapping
-    public HttpStatus update(@ModelAttribute Genre genre) {
+    public HttpStatus update(@RequestBody Genre genre) {
         dmlService.update(genre);
 
         return HttpStatus.OK;

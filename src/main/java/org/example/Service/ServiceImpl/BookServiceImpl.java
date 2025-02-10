@@ -1,6 +1,6 @@
 package org.example.Service.ServiceImpl;
 
-import org.example.Models.Book;
+import org.example.Entity.Book;
 import org.example.Service.BookDMLService;
 import org.example.Service.BookDQLService;
 import org.example.repositories.BookRepository;
@@ -36,7 +36,7 @@ public class BookServiceImpl implements BookDMLService, BookDQLService {
 
     @Override
     public Book findById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id);
     }
 
     @Override

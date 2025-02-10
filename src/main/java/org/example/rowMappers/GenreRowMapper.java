@@ -1,6 +1,6 @@
 package org.example.rowMappers;
 
-import org.example.Models.Genre;
+import org.example.Entity.Genre;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

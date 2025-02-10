@@ -1,23 +1,54 @@
-package org.example.Models;
+package org.example.Entity;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+
+@Entity
+@Table(name = "books")
 public class Book implements Serializable {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name",nullable = false)
     private String name;
+    @Column(name = "short_description")
     private String shortDescription;
-    private Integer authorId;
-    private Integer genreId;
+    @Column(name = "publication_year")
     private Integer publication_year;
+    @Column(name = "volume",nullable = false)
     private Integer volume;
-    private Integer coverTypeId;
+
+
+
+    @OneToOne(optional = false)
+//    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    @PrimaryKeyJoinColumn
+    private Author authorId;
+
+    @OneToOne(optional = false)
+//    @JoinColumn(name = "genre_id", referencedColumnName = "id")
+    @PrimaryKeyJoinColumn
+    private Genre genreId;
+
+    @OneToOne(optional = false)
+//    @JoinColumn(name = "cover_type_id", referencedColumnName = "id")
+    @PrimaryKeyJoinColumn
+    private CoverType coverTypeId;
+
+
+
+
+
 
     public Book() {
     }
 
-    public Book(Integer id, String name, String shortDescription, Integer authorId, Integer genreId, Integer publication_year, Integer volume, Integer coverTypeId) {
+    public Book(Integer id, String name, String shortDescription, Author authorId, Genre genreId, Integer publication_year, Integer volume, CoverType coverTypeId) {
         this.id = id;
         this.name = name;
         this.shortDescription = shortDescription;
@@ -52,21 +83,7 @@ public class Book implements Serializable {
         this.shortDescription = shortDescription;
     }
 
-    public Integer getAuthorId() {
-        return authorId;
-    }
 
-    public void setAuthorId(Integer authorId) {
-        this.authorId = authorId;
-    }
-
-    public Integer getGenreId() {
-        return genreId;
-    }
-
-    public void setGenreId(Integer genreId) {
-        this.genreId = genreId;
-    }
 
     public Integer getPublication_year() {
         return publication_year;
@@ -84,11 +101,27 @@ public class Book implements Serializable {
         this.volume = volume;
     }
 
-    public Integer getCoverTypeId() {
+    public Author getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Author authorId) {
+        this.authorId = authorId;
+    }
+
+    public Genre getGenreId() {
+        return genreId;
+    }
+
+    public void setGenreId(Genre genreId) {
+        this.genreId = genreId;
+    }
+
+    public CoverType getCoverTypeId() {
         return coverTypeId;
     }
 
-    public void setCoverTypeId(Integer coverTypeId) {
+    public void setCoverTypeId(CoverType coverTypeId) {
         this.coverTypeId = coverTypeId;
     }
 

@@ -1,76 +1,70 @@
 package org.example.repositories;
 
-import org.example.Models.Book;
+import org.example.Entity.Book;
 import org.example.rowMappers.BookRowMapper;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
+
 public class BookRepository implements DBRepository<Book>{
 
 
-    private final NamedParameterJdbcTemplate template;
-
+    private final SessionFactory sessionFactory;
 
     @Autowired
-    public BookRepository(NamedParameterJdbcTemplate template) {
-        super();
-        this.template = template;
+    public BookRepository(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
-        template.update("DELETE FROM Books WHERE ID = :id", new MapSqlParameterSource("id",id));
+        Session session = sessionFactory.getCurrentSession();
+        session.remove(session.find(Book.class,id));
     }
 
     @Override
+    @Transactional
     public void update(Book book) {
-        SqlParameterSource map = new MapSqlParameterSource()
-                .addValue("id", book.getId())
-                .addValue("name", book.getName())
-                .addValue("shortDescription", book.getShortDescription())
-                .addValue("authorId", book.getAuthorId())
-                .addValue("genreId", book.getGenreId())
-                .addValue("publicationYear", book.getPublication_year())
-                .addValue("volume", book.getVolume())
-                .addValue("coverTypeId", book.getCoverTypeId());
-        template.update("UPDATE Books SET name = :name, short_description = :shortDescription, author_id = :authorId, genre_id = :genreId, publication_year = :publicationYear, volume = :volume, cover_type_id = :coverTypeId WHERE ID = :id",
-                map);
+        Session session = sessionFactory.getCurrentSession();
+        session.merge(book);
     }
 
 
     @Override
+    @Transactional
     public void insert(Book book) {
-        SqlParameterSource map = new MapSqlParameterSource()
-                .addValue("name", book.getName())
-                .addValue("shortDescription", book.getShortDescription())
-                .addValue("authorId", book.getAuthorId())
-                .addValue("genreId", book.getGenreId())
-                .addValue("publicationYear", book.getPublication_year())
-                .addValue("volume", book.getVolume())
-                .addValue("coverTypeId", book.getCoverTypeId());
-        template.update("INSERT INTO Books (name, short_description, author_id, genre_id, publication_year, volume, cover_type_id) VALUES (:name, :shortDescription, :authorId, :genreId, :publicationYear, :volume, :coverTypeId)",
-                map);
+        Session session = sessionFactory.getCurrentSession();
+        session.persist(book);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Book> findAll() {
-        return template.query("SELECT * FROM Books", new BookRowMapper());
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("SELECT b From Book b",Book.class).getResultList();
     }
 
     @Override
-    public Optional<Book> findById(Integer id) {
-        return template.query("SELECT * FROM Books WHERE ID = :id",
-                        new MapSqlParameterSource("id",id),
-                        new BookRowMapper())
-                .stream()
-                .findAny();
+    @Transactional(readOnly = true)
+    public Book findById(Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.find(Book.class,id);
+        session.find(Book.class,id);
+        session.find(Book.class,id);
+
+
+        return session.find(Book.class,id);
     }
 
 }

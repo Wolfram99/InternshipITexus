@@ -1,16 +1,23 @@
 package org.example;
 
+import org.example.Entity.CoverType;
+import org.example.Entity.Genre;
 import org.example.Service.BookDMLService;
 import org.example.Service.BookDQLService;
 import org.example.CustomException.ValidException;
 import org.example.Loggers.Logger;
-import org.example.Models.Book;
+import org.example.Entity.Book;
 
+import org.example.Service.ServiceImpl.AuthorServiceImpl;
+import org.example.Service.ServiceImpl.CoverTypeServiceImpl;
+import org.example.Service.ServiceImpl.GenreServiceImpl;
+import org.example.repositories.CoverTypeRepository;
 import org.example.util.ParserStringToBook;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -34,8 +41,9 @@ public class AppRunner {
         this.messageSource = messageSource;
     }
 
-    public void run() {
 
+
+    public void run() {
         Scanner sc = new Scanner(System.in);
         logger.print(messageSource.getMessage("application.startMessage",null,null));
         lang = sc.nextLine();
@@ -70,12 +78,14 @@ public class AppRunner {
                 }
                 case 3 -> {
                     logger.print(messageSource.getMessage("application.titleCreate",null, Locale.forLanguageTag(lang)));
+
                     dml.insert(ParserStringToBook.parse(sc.nextLine()));
                 }
                 case 4 ->{
 
                     temp.forEach(user -> logger.print(user.toString()));
                     logger.print(messageSource.getMessage("application.titleUpdate",null,Locale.forLanguageTag(lang)));
+
                     dml.update(ParserStringToBook.parse(sc.nextLine()));
                 }
                 case 5 ->{

@@ -1,6 +1,6 @@
 package org.example.Service.ServiceImpl;
 
-import org.example.Models.Genre;
+import org.example.Entity.Genre;
 import org.example.Service.GenreDMLService;
 import org.example.Service.GenreDQLService;
 import org.example.repositories.GenreRepository;
@@ -36,7 +36,7 @@ public class GenreServiceImpl implements GenreDQLService, GenreDMLService {
 
     @Override
     public Genre findById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id);
     }
 
     @Override

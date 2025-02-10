@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.MappingIterator;
 import org.example.AppRunner;
 import org.example.Connectors.ConnectionForTheFile;
 import org.example.Loggers.Logger;
-import org.example.Models.Book;
+import org.example.Entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;

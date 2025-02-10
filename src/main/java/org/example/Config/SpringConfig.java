@@ -10,7 +10,7 @@ import java.util.Locale;
 @ComponentScan("org.example")
 @PropertySource("classpath:pathToFile.properties")
 @EnableAspectJAutoProxy
-@Import(DataSourceConfig.class)
+@Import({DataSourceConfig.class,HibernateConfig.class})
 public class SpringConfig {
 
     @Bean

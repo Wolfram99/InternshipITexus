@@ -1,6 +1,6 @@
 package org.example.Service.ServiceImpl;
 
-import org.example.Models.CoverType;
+import org.example.Entity.CoverType;
 import org.example.Service.CoverTypeDMLService;
 import org.example.Service.CoverTypeDQLService;
 import org.example.repositories.CoverTypeRepository;
@@ -36,7 +36,7 @@ public class CoverTypeServiceImpl implements CoverTypeDMLService, CoverTypeDQLSe
 
     @Override
     public CoverType findById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id);
     }
 
     @Override

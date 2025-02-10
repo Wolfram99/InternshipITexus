@@ -1,6 +1,6 @@
 package org.example.Service.ServiceImpl;
 
-import org.example.Models.Author;
+import org.example.Entity.Author;
 import org.example.Service.AuthorDMLService;
 import org.example.Service.AuthorDQLService;
 import org.example.repositories.AuthorRepository;
@@ -36,7 +36,7 @@ public class AuthorServiceImpl implements AuthorDQLService, AuthorDMLService {
 
     @Override
     public Author findById(Integer id) {
-        return repository.findById(id).get();
+        return repository.findById(id);
     }
 
     @Override

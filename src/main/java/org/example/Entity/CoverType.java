@@ -1,11 +1,22 @@
-package org.example.Models;
+package org.example.Entity;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import java.util.Objects;
 
+@Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+@Table(name = "cover_type")
 public class CoverType{
 
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "cover_type",nullable = false,unique = true)
     private String coverType;
 
     public CoverType() {

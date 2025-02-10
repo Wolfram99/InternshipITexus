@@ -27,9 +27,28 @@ CREATE TABLE Books(
       cover_type_id int not null REFERENCES cover_type(id)
 );
 
-
-
-
 ALTER TABLE BOOKS ADD COLUMN "object_id" VARCHAR(255);
+
+
+
+
+
+
+CREATE TABLE roles (
+       id serial not null primary key,
+       name VARCHAR not null UNIQUE
+);
+
+INSERT INTO roles VALUES (default, 'ROLE_USER');
+INSERT INTO roles VALUES (default, 'ROLE_ADMIN');
+
+CREATE TABLE users_accounts (
+        id serial not null primary key,
+        username VARCHAR not null UNIQUE,
+        password VARCHAR not null,
+        roles_id int not null REFERENCES roles(id)
+);
+
+
 
 

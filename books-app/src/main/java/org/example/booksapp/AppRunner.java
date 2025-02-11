@@ -2,7 +2,7 @@ package org.example.booksapp;
 
 import org.example.booksapp.service.BookDMLService;
 import org.example.booksapp.service.BookDQLService;
-import org.example.booksapp.customException.ValidException;
+import org.example.booksapp.customexception.ValidException;
 import org.example.booksapp.loggers.Logger;
 import org.example.booksapp.entities.Book;
 

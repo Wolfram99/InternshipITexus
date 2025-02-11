@@ -1,4 +1,4 @@
-package org.example.booksapp.bookDAO;
+package org.example.booksapp.bookdao;
 
 import org.example.booksapp.entities.Book;
 import org.example.booksapp.service.BookDMLService;

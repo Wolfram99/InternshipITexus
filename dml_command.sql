@@ -1,31 +1,31 @@
-INSERT INTO cover_type (cover_type) VALUES ('Мягкий переплёт - термоклеевой');
-INSERT INTO cover_type (cover_type) VALUES ('Мягкий переплёт - скоба');
-INSERT INTO cover_type (cover_type) VALUES ('Мягкий переплёт - на пружине');
-INSERT INTO cover_type (cover_type) VALUES ('Твёрдый переплёт - цельнокрытая');
-INSERT INTO cover_type (cover_type) VALUES ('Твёрдый переплёт - обыкновенного крытья');
+INSERT INTO cover_type (cover_type) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO cover_type (cover_type) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO cover_type (cover_type) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO cover_type (cover_type) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO cover_type (cover_type) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ');
 
-INSERT INTO genres (genre) VALUES ('Драма');
-INSERT INTO genres (genre) VALUES ('Проза');
-INSERT INTO genres (genre) VALUES ('Поэзия');
-INSERT INTO genres (genre) VALUES ('Приключения');
-INSERT INTO genres (genre) VALUES ('Детектив');
-INSERT INTO genres (genre) VALUES ('Роман');
-INSERT INTO genres (genre) VALUES ('Ужасы');
-INSERT INTO genres (genre) VALUES ('Триллер');
-INSERT INTO genres (genre) VALUES ('Научная фантастика');
-INSERT INTO genres (genre) VALUES ('Комедия');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
+INSERT INTO genres (genre) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅ');
 
-INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('Александр','Сергеевич','Пушкин',1799);
-INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('Михаил','Афанасьевич','Булгаков',1891);
-INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('Николай','Алексеевич','Некрасов',1847);
-INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('Александр','Сергеевич','Грибоедов',1795);
-INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('Николай','Васильевич','Гоголь',1809);
+INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅ',1799);
+INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',1891);
+INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',1847);
+INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ',1795);
+INSERT INTO authors (name, patronymic, surname, birth_year) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅ',1809);
 
-INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('Дедушка Мазай и зайцы','Дедушка Мазай и зайцы - стихотворение Николая Некрасова, вошедшее в школьную программу.',3,3,16,1,1870);
-INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('Горе от ума','«Горе от ума» – знаменитая комедия в стихах, написанная Александром Сергеевичем Грибоедовым. Комедия обличает русское общество начала 19 века, но остаётся актуальной по сей день.',4,10,224,5,1833);
-INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('Кавказский пленник','Рассказ о смелом и находчивом русском офицере, успешно бежавшем из плена, многократно переиздавался и стал частью школьной программы.',1,3,15,2,1822);
-INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('Мёртвые души','Главный герой— Павел Иванович Чичиков — ездит от имения к имению в глубинке России, скупая у хозяев мертвых крестьян, которые числятся живыми. Он хочет выдать себя за богатого человека и заработать на афере.',5,1,544,4,1842);
-INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('Ревизор','В комедии «Ревизор» сюжет разворачивается в коррумпированном провинциальном городке, которых много и сейчас. Яркие и порой утрированные образы, созданные автором, существуют и в современном обществе.',5,10,296,4,1842);
+INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.',3,3,16,1,1870);
+INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 19 пїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.',4,10,224,5,1833);
+INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.',1,3,15,2,1822);
+INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('МёпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ','пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.',5,1,544,4,1842);
+INSERT INTO books (name, short_description, author_id, genre_id, volume, cover_type_id, publication_year) VALUES ('пїЅпїЅпїЅпїЅпїЅпїЅпїЅ','пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.',5,10,296,4,1842);
 
 UPDATE books SET object_id = '673baa56a878a354bb490afd' WHERE id = 1;
 UPDATE books SET object_id = '673baffb494e9d2beeac97cc' WHERE id = 2;
@@ -33,5 +33,3 @@ UPDATE books SET object_id = '673bb014494e9d2beeac97ce' WHERE id = 3;
 UPDATE books SET object_id = '673bb05f494e9d2beeac97d0' WHERE id = 4;
 UPDATE books SET object_id = '673bb073494e9d2beeac97d2' WHERE id = 5;
 
-INSERT INTO roles VALUES (default, 'ROLE_USER');
-INSERT INTO roles VALUES (default, 'ROLE_ADMIN');

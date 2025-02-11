@@ -32,8 +32,8 @@ public class AuthController {
         return HttpStatus.OK;
     }
 
-    @PostMapping("/sing_in")
-    public ResponseEntity<JwtAuthenticationDto> singIn(@RequestBody UserAccountCredentialsDto userAccountCredentialsDto) {
+    @PostMapping("/sign_in")
+    public ResponseEntity<JwtAuthenticationDto> signIn(@RequestBody UserAccountCredentialsDto userAccountCredentialsDto) {
         try {
             JwtAuthenticationDto jwtAuthenticationDto = service.singIn(userAccountCredentialsDto);
             return ResponseEntity.ok(jwtAuthenticationDto);

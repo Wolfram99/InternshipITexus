@@ -1,0 +1,31 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mongo-db-svc:27017/icons
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1GB
+      max-request-size: 1GB
+  cloud:
+    config:
+      enabled: false
+    consul:
+      discovery:
+        instance-id: working-files-i123
+        include-hostname-in-instance-id: true
+        hostname: working-files-123
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true

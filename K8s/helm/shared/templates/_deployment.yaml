@@ -1,0 +1,87 @@
+{{- define "shared.deployment" -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-config
+  labels:
+    helm.sh/chart: {{ .Chart.Name }}
+    app.kubernetes.io/managed-by: {{ $.Release.Service }}
+    app.kubernetes.io/name: {{ .Chart.Name }}
+data:
+{{ (.Files.Glob "config/*").AsConfig | indent 2 }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-{{ .Chart.Name }}-deployment
+  labels:
+    app: task-{{ .Chart.Name }}
+    helm.sh/chart: {{ .Chart.Name }}
+    app.kubernetes.io/managed-by: {{ $.Release.Service }}
+    app.kubernetes.io/name: {{ .Chart.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: task-{{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: task-{{ .Chart.Name }}
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: {{ .Chart.Name }}-config
+      containers:
+        - name: task-{{ .Chart.Name }}
+          image: {{ .Values.image }}
+
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_CLOUD_CONSUL_HOST
+              value: consul-svc.default.svc.cluster.local
+            - name: SPRING_CONFIG_IMPORT
+              value: /etc/opt/{{ .Chart.Name }}/application.yml
+          volumeMounts:
+            - mountPath: /etc/opt/{{ .Chart.Name }}
+              name: config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: task-{{ .Chart.Name }}-svc
+  labels:
+    helm.sh/chart: {{ .Chart.Name }}
+    app.kubernetes.io/managed-by: {{ $.Release.Service }}
+    app.kubernetes.io/name: {{ .Chart.Name }}
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      name: http
+  selector:
+    app: task-{{ .Chart.Name }}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: task-{{ .Chart.Name }}-ingress
+  labels:
+    helm.sh/chart: {{ .Chart.Name }}
+    app.kubernetes.io/managed-by: {{ $.Release.Service }}
+    app.kubernetes.io/name: {{ .Chart.Name }}
+spec:
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: selmag-{{ .Chart.Name }}-svc
+                port:
+                  name: http
+{{- end -}}

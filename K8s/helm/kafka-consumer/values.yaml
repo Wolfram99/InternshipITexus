@@ -1,0 +1,4 @@
+image: wolfram999/task-kafka-consumer:1.0.2
+containerPort: 8080
+ingress:
+  host: kafka.consumer.192.168.59.102.nip.io

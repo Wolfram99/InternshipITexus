@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authentication-users-deployment
+  labels:
+    app: authentication-users
+spec:
+  selector:
+    matchLabels:
+      app: authentication-users
+  template:
+    metadata:
+      labels:
+        app: authentication-users
+    spec:
+      containers:
+        - name: authentication-users
+          image: wolfram999/task-authentication-users:latest
+          ports:
+            - containerPort: 8086
+          env:
+            - name: SPRING_CLOUD_CONSUL_HOST
+              value: consul-svc.default.svc.cluster.local
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://books-db-svc:5432/InternshipITexus
+            - name: SPRING_CONFIG_IMPORT
+              value: configserver:http://config-server@task-config-server-svc.default.svc.cluster.local:8888
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: authentication-users-svc
+spec:
+  selector:
+    app: authentication-users
+  ports:
+    - protocol: TCP
+      name: authentication-users
+      port: 8086
+  type: NodePort
+

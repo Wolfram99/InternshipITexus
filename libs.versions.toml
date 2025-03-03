@@ -1,0 +1,51 @@
+[versions]
+spring-boot = "3.4.0"
+jwt-version = "0.12.6"
+spring-cloud = "2024.0.0"
+prometheus = "1.14.3"
+spring-cloud-circuitbreaker = "3.2.0"
+junit-platform-launcher = "1.11.3"
+jackson = "2.17.2"
+hibernate = "6.6.1.Final"
+ehcache = "3.10.8"
+commons-io = "2.17.0"
+postgresql = "42.7.14"
+kafka = "3.3.0"
+
+
+[libraries]
+spring-boot-actuator = {group = "org.springframework.boot", name = "spring-boot-starter-actuator", version.ref = "spring-boot"}
+spring-boot-test = {group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring-boot"}
+spring-boot-web = {group = "org.springframework.boot", name = "boot:spring-boot-starter-web", version.ref = "spring-boot"}
+spring-boot-aop = {group = "org.springframework.boot", name = "spring-boot-starter-aop", version.ref = "spring-boot"}
+spring-boot-data-jpa = {group = "org.springframework.boot", name = "spring-boot-starter-data-jpa", version.ref = "spring-boot"}
+spring-boot-data-mongodb = {group = "org.springframework.boot", name = "spring-boot-starter-data-mongodb", version.ref = "spring-boot"}
+pring-boot-starter = {group = "org.springframework.boot", name = "spring-boot-starter", version.ref = "spring-boot"}
+
+spring-cloud-consul-discovery = {group = "org.springframework.cloud", name = "spring-cloud-starter-consul-discovery", version.ref = "spring-cloud"}
+spring-cloud-circuitbreaker = {group = "org.springframework.cloud", name = "spring-cloud-starter-circuitbreaker-reactor-resilience4j", version.ref = "spring-cloud-circuitbreaker"}
+spring-cloud-config = {group = "org.springframework.cloud", name = "spring-cloud-starter-config", version.ref = "spring-cloud"}
+spring-cloud-config-server = {group = "org.springframework.cloud", name = "spring-cloud-config-server", version.ref = "spring-cloud"}
+spring-cloud-gateway = {group = "org.springframework.cloud", name = "spring-cloud-starter-gateway", version.ref = "spring-cloud"}
+spring-cloud-openfeign = {group = "org.springframework.cloud", name = "spring-cloud-starter-openfeign", version.ref = "spring-cloud"}
+
+jackson-core = {group = "com.fasterxml.jackson.core", name = "jackson-databind", version.ref = "jackson"}
+jackson-dataformat-csv = {group = "com.fasterxml.jackson.dataformat", name = "jackson-dataformat-csv", version.ref = "jackson"}
+prometheus = {group = "io.micrometer", name = "micrometer-registry-prometheus", version.ref = "prometheus"}
+junit-platform-launcher = {group = "org.junit.platform", name = "junit-platform-launcher", version.ref = "junit-platform-launcher"}
+hibernate-jcache = {group = "org.hibernate.orm", name = "hibernate-jcache", version.ref = "hibernate"}
+ehcache = {group = "org.ehcache", name = "ehcache", version.ref = "ehcache"}
+commons-io = {group = "commons-io", name = "commons-io", version.ref = "commons-io"}
+jwt-api = {group = "io.jsonwebtoken", name = "jjwt-api", version.ref = "jwt-version"}
+jwt-impl = {group = "io.jsonwebtoken", name = "jjwt-impl", version.ref = "jwt-version"}
+jwt-jackson = {group = "io.jsonwebtoken", name = "jjwt-jackson", version.ref = "jwt-version"}
+postgresql = {group = "org.postgresql", name = "postgresql", version.ref = "postgresql"}
+
+kafka-core = {group = "org.springframework.kafkal", name = "spring-kafka", version.ref = "kafka"}
+kafka-test = {group = "org.springframework.kafkal", name = "spring-kafka-test", version.ref = "kafka"}
+
+[bundles]
+
+
+
+
